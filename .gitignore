@@ -1,0 +1,7 @@
+/public
+.DS_Store
+/.sass_cache/*
+/.sass-cache/*
+crash.log
+/tmp
+/log
