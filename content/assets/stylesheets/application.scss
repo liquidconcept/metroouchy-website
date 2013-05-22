@@ -1,5 +1,174 @@
 @import "compass/reset";
+@import "compass/typography/text/replacement";
+@import "compass/utilities/general/clearfix";
+@import "compass/css3/border-radius";
+
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web);
+
+/*----------------------------------------*/
+/*                 COLORS                 */
+/*----------------------------------------*/
+
+$white: #FFF;
+$black: #000;
+$grey: #8E9AA4;
+$dark_grey: #4C4C4E;
+$green: #A4C828;
+$red: #6F0421;
 
 /*----------------------------------------*/
 /*                DEFAULT                 */
 /*----------------------------------------*/
+
+.main {
+  width: 960px;
+  margin: 0 auto;
+  font-family: 'Titillium Web', sans-serif;
+
+  a {
+    color: $red;
+  }
+}
+
+/*----------------------------------------*/
+/*                 HEADER                 */
+/*----------------------------------------*/
+
+header.main {
+  margin-top: 25px;
+  @include pie-clearfix;
+  position: relative;
+  border-bottom: solid 1px $grey;
+
+  .line {
+    border-bottom: 1px solid $grey;
+  }
+
+  h1.flon_logo {
+    float: left;
+    margin-bottom: 10px;
+    @include replace-text-with-dimensions('flon_logo.jpg', 50%, 50%, true);
+  }
+
+  .schedule {
+    width: 560px;
+    margin: 0 auto;
+    padding-top: 58px;
+    position: relative;
+
+    p{
+      font-size: 0.9em;
+    }
+
+    .phone {
+      margin-top: 5px;
+      font-size: 1em;
+      color: $grey;
+      font-weight: bold;
+    }
+
+    .flon {
+      width: 187px;
+      float: left;
+      margin-left: 40px;
+    }
+
+    .date {
+      width: 130px;
+      margin: 0 auto;
+
+      p {
+        text-align: center;
+      }
+
+    .day {
+        text-transform: uppercase;
+      }
+    }
+
+    .ouchy {
+      width: 187px;
+      position: absolute;
+      bottom: -8px;
+      right: 40px;
+
+      p {
+        text-align: right;
+      }
+    }
+  }
+
+  h1.ouchy_logo {
+    position: absolute;
+    bottom: 10px;
+    right: 0px;
+    @include replace-text-with-dimensions('ouchy_logo.jpg', 50%, 50%, true);
+  }
+}
+
+/******************* NAV *******************/
+
+nav {
+  position: relative;
+
+  .bar {
+    width: 800px;
+    height: 10px;
+    background-color: $grey;
+    margin: 50px auto;
+  }
+
+  .circle {
+    width: 20px;
+    height: 20px;
+    background-color: $dark_grey;
+    @include border-radius(10px, 10px);
+  }
+
+  .circle_home {
+    position: absolute;
+    left: 70px;
+    top: -5px;
+  }
+
+  .circle_service {
+    position: absolute;
+    left: 230px;
+    top: -5px;
+  }
+
+  .circle_institut {
+    position: absolute;
+    left: 390px;
+    top: -5px;
+  }
+
+  .circle_parfumerie {
+    position: absolute;
+    left: 550px;
+    top: -5px;
+  }
+
+  .circle_events {
+    position: absolute;
+    left: 710px;
+    top: -5px;
+  }
+
+  .circle_contact {
+    position: absolute;
+    left: 870px;
+    top: -5px;
+  }
+}
+
+/*----------------------------------------*/
+/*                 FOOTER                 */
+/*----------------------------------------*/
+
+footer.main {
+  p {
+    width: 530px;
+    margin: 0 auto;
+  }
+}

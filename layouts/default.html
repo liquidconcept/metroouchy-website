@@ -7,7 +7,42 @@
     <script src="<%= javascript_path 'application' %>"></script>
   </head>
   <body>
-    <div id ="main">
-    </div>
+    <section class="main">
+      <header class="main">
+        <h1 class="flon_logo">Métro Flon pharmacie</h1>
+        <div class="schedule">
+          <div class="flon">
+            <p>7h - 21h non stop</p>
+            <p class="phone">021 318 73 10</p>
+          </div>
+          <div class="date">
+            <p class="day">mercredi</p>
+            <p>22 septembre 2013</p>
+          </div>
+          <div class="ouchy">
+            <p>7h - 21h non stop</p>
+            <p class="phone">021 312 03 03</p>
+          </div>
+        </div>
+        <h1 class="ouchy_logo">Métro Ouchy pharmacie</h1>
+      </header>
+      <nav>
+        <div class="bar"></div>
+        <div class="circle circle_home"></div>
+        <div class="circle circle_service"></div>
+        <div class="circle circle_institut"></div>
+        <div class="circle circle_parfumerie"></div>
+        <div class="circle circle_events"></div>
+        <div class="circle circle_contact"></div>
+      </nav>
+      <section class="content">
+
+        <%= yield %>
+
+      </section>
+      <footer class="main">
+        <p>© 2011-2013 Pharmacies MetroOuchy & MetroFlon - création: <a href="http://www.liquid-concept.ch">Liquid Concept</a></p>
+      </footer>
+    </section>
   </body>
 </html>
