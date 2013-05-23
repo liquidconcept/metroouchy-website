@@ -1,5 +1,324 @@
 @import "compass/reset";
+@import "compass/typography/text/replacement";
+@import "compass/utilities/general/clearfix";
+@import "compass/css3/border-radius";
+
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web);
+
+/*----------------------------------------*/
+/*                 COLORS                 */
+/*----------------------------------------*/
+
+$white: #FFF;
+$black: #000;
+$grey: #8E9AA4;
+$dark_grey: #4C4C4E;
+$green: #A4C828;
+$red: #6F0421;
 
 /*----------------------------------------*/
 /*                DEFAULT                 */
 /*----------------------------------------*/
+
+.main {
+  width: 960px;
+  margin: 0 auto;
+  font-family: 'Titillium Web', sans-serif;
+
+  a {
+    color: $red;
+  }
+
+  .doted {
+    border: 3px dotted $grey;
+  }
+
+  .square {
+    width: 20px;
+    height: 20px;
+    float: left;
+  }
+
+  .green {
+    background-color: $green;
+    margin-left: 5px;
+  }
+
+  .red {
+    background-color: $red;
+  }
+}
+
+/*----------------------------------------*/
+/*                 HEADER                 */
+/*----------------------------------------*/
+
+header.main {
+  margin-top: 25px;
+  @include pie-clearfix;
+  position: relative;
+  border-bottom: solid 1px $grey;
+
+  .line {
+    border-bottom: 1px solid $grey;
+  }
+
+  h1.flon_logo {
+    float: left;
+    margin-bottom: 10px;
+    @include replace-text-with-dimensions('flon_logo.jpg', 50%, 50%, true);
+  }
+
+  .schedule {
+    width: 560px;
+    margin: 0 auto;
+    padding-top: 58px;
+    position: relative;
+
+    p{
+      font-size: 0.9em;
+    }
+
+    .phone {
+      margin-top: 5px;
+      font-size: 1em;
+      color: $grey;
+      font-weight: bold;
+    }
+
+    .flon {
+      width: 187px;
+      float: left;
+      margin-left: 40px;
+    }
+
+    .date {
+      width: 130px;
+      margin: 0 auto;
+
+      p {
+        text-align: center;
+      }
+
+    .day {
+        text-transform: uppercase;
+      }
+    }
+
+    .ouchy {
+      width: 187px;
+      position: absolute;
+      bottom: -8px;
+      right: 40px;
+
+      p {
+        text-align: right;
+      }
+    }
+  }
+
+  h1.ouchy_logo {
+    position: absolute;
+    bottom: 10px;
+    right: 0px;
+    @include replace-text-with-dimensions('ouchy_logo.jpg', 50%, 50%, true);
+  }
+}
+
+/******************* NAV *******************/
+
+nav {
+  @include pie-clearfix;
+  position: relative;
+
+  .bar {
+    width: 800px;
+    height: 10px;
+    background-color: $grey;
+    margin: 50px auto;
+  }
+
+  .circle {
+    width: 20px;
+    height: 20px;
+    background-color: $dark_grey;
+    @include border-radius(10px, 10px);
+  }
+
+  .legend {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+
+    p {
+      margin-bottom: 10px;
+      font-size: 1em;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: $grey;
+    }
+  }
+
+  .circle_home {
+    position: absolute;
+    left: 70px;
+    top: -5px;
+  }
+
+  .home {
+    left: 70px;
+    top: 30px;
+  }
+
+  .circle_service {
+    position: absolute;
+    left: 230px;
+    top: -5px;
+  }
+
+  .service {
+    left: 230px;
+    top: 30px;
+  }
+
+  .circle_institut {
+    position: absolute;
+    left: 390px;
+    top: -5px;
+  }
+
+  .institut {
+    left: 390px;
+    top: 30px;
+  }
+
+  .circle_parfumerie {
+    position: absolute;
+    left: 550px;
+    top: -5px;
+  }
+
+  .parfumerie {
+    left: 550px;
+    top: 30px;
+  }
+
+  .circle_events {
+    position: absolute;
+    left: 710px;
+    top: -5px;
+  }
+
+  .events {
+    left: 710px;
+    top: 30px;
+  }
+
+  .circle_contact {
+    position: absolute;
+    left: 870px;
+    top: -5px;
+  }
+
+  .contact {
+    left: 870px;
+    top: 30px;
+  }
+}
+
+/***************** SLIDERS *****************/
+
+#sliders {
+  width: 960px;
+  height: 525px;
+  margin-top: 50px;
+  position: relative;
+
+  .name {
+    width: 250px;
+    height: 40px;
+    background-color: $white;
+    @include border-radius(20px, 20px);
+  }
+
+  .content_name {
+    height: 20px;
+    width: 170px;
+    margin: 10px auto;
+
+    span {
+      margin-left: 5px;
+      font-size: 1em;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: $grey;
+    }
+
+    .last {
+      float: right;
+    }
+  }
+
+  #slider_flon {
+    width: 470px;
+    overflow: hidden;
+    float: left;
+    border-left: 10px solid $white;
+    position: relative;
+
+    .name {
+      position: absolute;
+      top: 30px;
+      left: -20px;
+    }
+  }
+
+  #slider_ouchy {
+    width: 470px;
+    overflow: hidden;
+    float: right;
+    position: relative;
+
+    .name {
+      position: absolute;
+      top: 30px;
+      right: -20px;
+    }
+  }
+
+  .arrow_down {
+    width: 70px;
+    height: 50px;
+    background-color: $white;
+    @include border-radius(20px, 20px);
+    position: absolute;
+    top: 470px;
+    left: 450px;
+
+    .content {
+      width: 10px;
+      height: 10px;
+      margin: 10px 0px 0px 20px;
+
+      .arrow {
+        width: 0;
+        height: 0;
+        margin: 0 auto;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-top: 15px solid $grey;
+      }
+    }
+  }
+}
+
+/*----------------------------------------*/
+/*                 FOOTER                 */
+/*----------------------------------------*/
+
+footer.main {
+  p {
+    width: 530px;
+    margin: 0 auto;
+  }
+}

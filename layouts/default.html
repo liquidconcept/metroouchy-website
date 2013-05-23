@@ -7,7 +7,97 @@
     <script src="<%= javascript_path 'application' %>"></script>
   </head>
   <body>
-    <div id ="main">
-    </div>
+    <section class="main head">
+      <header class="main">
+        <h1 class="flon_logo">Métro Flon pharmacie</h1>
+        <div class="schedule">
+          <div class="flon">
+            <p>7h - 21h non stop</p>
+            <p class="phone">021 318 73 10</p>
+          </div>
+          <div class="date">
+            <p class="day">mercredi</p>
+            <p>22 septembre 2013</p>
+          </div>
+          <div class="ouchy">
+            <p>7h - 21h non stop</p>
+            <p class="phone">021 312 03 03</p>
+          </div>
+        </div>
+        <h1 class="ouchy_logo">Métro Ouchy pharmacie</h1>
+      </header>
+      <nav>
+        <div class="bar"></div>
+        <div class="circle circle_home"></div>
+        <div class="legend home">
+          <p>acceuil</p>
+          <div class="square red"></div>
+          <div class="square green"></div>
+        </div>
+        <div class="circle circle_service"></div>
+        <div class="legend service">
+          <p>service</p>
+          <div class="square red"></div>
+          <div class="square green"></div>
+        </div>
+        <div class="circle circle_institut"></div>
+        <div class="legend institut">
+          <p>institut</p>
+          <div class="square red"></div>
+        </div>
+        <div class="circle circle_parfumerie"></div>
+        <div class="legend parfumerie">
+          <p>parfumerie</p>
+          <div class="square red"></div>
+        </div>
+        <div class="circle circle_events"></div>
+        <div class="legend events">
+          <p>évenements</p>
+          <div class="square red"></div>
+        </div>
+        <div class="circle circle_contact"></div>
+        <div class="legend contact">
+          <p>contact</p>
+          <div class="square red"></div>
+          <div class="square green"></div>
+        </div>
+      </nav>
+      <section id="sliders">
+        <article id="slider_flon">
+          <div class="name">
+            <div class="content_name">
+              <div class="square green"></div>
+              <span>metro flon</span>
+              <div class="square green last"></div>
+            </div>
+          </div>
+          <img src="<%= image_path('flon_1.jpg') %>" />
+        </article>
+        <article id="slider_ouchy">
+          <img src="<%= image_path('ouchy_1.jpg') %>" />
+          <div class="name">
+            <div class="content_name">
+              <div class="square red"></div>
+              <span>metro ouchy</span>
+              <div class="square red last"></div>
+            </div>
+          </div>
+        </article>
+        <div class="arrow_down">
+          <div class="content">
+            <div class="arrow"></div>
+          </div>
+        </div>
+      </section>
+      <hr class="doted" />
+      <section class="content">
+
+        <%= yield %>
+
+      </section>
+      <footer class="main">
+        <p>© 2011-2013 Pharmacies MetroOuchy & MetroFlon - création: <a href="http://www.liquid-concept.ch">Liquid Concept</a></p>
+      </footer>
+    </section>
   </body>
 </html>
