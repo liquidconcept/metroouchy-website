@@ -1,0 +1,61 @@
+<section class="service">
+  <article class="left_col">
+    <div class="dot_title"></div><h2>services</h2>
+    <h4>Pharmacies indépendantes</h4>
+    <ul>
+      <li>- Conseils et suivi thérapeutique</li>
+      <li>- Carte fidélité gratuite</li>
+      <li>- Services de livraison à domicile gratuit</li>
+      <li>- Location de tire-lait, pèse bébé, cannes anglaises</li>
+      <li>- Suivi therapeutique / semainier / conseils spécialisés</li>
+      <li>- Service de livraison gratuite</li>
+      <li>- Carte fidélité gratuite</li>
+    </ul>
+    <p>Un service de formulaire de commande pour :</p>
+    <ul>
+      <li>- les clients travaillant dans le coin ou les clients réguliers</li>
+      <li>- la livraison ou le passage pour chercher à la pharmacie</li>
+    </ul>
+    <p>Un système simple avec uniquement vos nom, prénom, adresse, téléphone et email.</p>
+  </article>
+  <article class="right_col">
+    <h3>2 pharmacies</h3>
+    <h3>2 lieux</h3>
+    <h3>un service de qualité</h3>
+    <img src="<%= image_path('ouchy_2.jpg') %>">
+  </article>
+</section>
+<section class="form_service">
+  <article>
+    <form method="post" action="/command">
+      <div class="row">
+        <fieldset>
+          <div class="span4 column_1">
+            <h5>Formulaire de commande</h5>
+            <span>Nom. Prénom :</span>
+            <input type="text" name="command[name]" required /><br />
+            <span>Téléphone :</span>
+            <input type="text" name="command[phone]" required />
+          </div>
+          <div class="span4 column_2">
+            <span>Message</span>
+            <textarea rows="12" cols="39" name="command[message]" required></textarea>
+          </div>
+          <div class="span4 column_3">
+            <div class="span2">
+              <p>Livraison</p><br />
+              <label><input type="checkbox" name="command[deliver]" value="true" id="delivery_address">à domicile</label>
+            </div>
+            <div class="span2">
+              <p>Passer chercher à la pharmacie</p><br />
+              <label><input type="checkbox" name="command[deliver]" value="true" id="delivery_address">MetroOuchy</label><br /><br />
+              <label><input type="checkbox" name="command[deliver]" value="true" id="delivery_address">MetroFlon</label>
+            </div>
+            <input type="submit" value="Commander" class="submit_command">
+          </div>
+        </fieldset>
+      </div>
+    </form>
+  </article>
+</section>
+<hr class="doted" />

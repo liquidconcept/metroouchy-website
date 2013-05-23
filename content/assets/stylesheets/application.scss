@@ -2,8 +2,11 @@
 @import "compass/typography/text/replacement";
 @import "compass/utilities/general/clearfix";
 @import "compass/css3/border-radius";
+@import "compass/css3/box-shadow";
 
 @import url(http://fonts.googleapis.com/css?family=Titillium+Web);
+
+@import "bootstrap";
 
 /*----------------------------------------*/
 /*                 COLORS                 */
@@ -14,6 +17,7 @@ $black: #000;
 $grey: #8E9AA4;
 $dark_grey: #4C4C4E;
 $green: #A4C828;
+$light_green: #B4D334;
 $red: #6F0421;
 
 /*----------------------------------------*/
@@ -31,6 +35,7 @@ $red: #6F0421;
 
   .doted {
     border: 3px dotted $grey;
+    margin: 30px 0px;
   }
 
   .square {
@@ -46,6 +51,43 @@ $red: #6F0421;
 
   .red {
     background-color: $red;
+  }
+
+  .dot_title {
+    width: 30px;
+    height: 30px;
+    background-color: $dark_grey;
+    @include border-radius(20px, 20px);
+    float: left;
+  }
+
+  p {
+    font-size: 1.2em;
+  }
+
+  h2 {
+    font-size: 2em;
+    color: $dark_grey;
+    text-transform: uppercase;
+    margin: 0px 0px 20px 40px;
+  }
+
+  h3 {
+    font-size: 1.8em;
+    color: $grey;
+    margin-bottom: 10px;
+  }
+
+  h4 {
+    font-size: 1.6em;
+    color: $grey;
+    margin-bottom: 20px;
+  }
+
+  h5 {
+    font-size: 1.6em;
+    color: $white;
+    margin-bottom: 20px;
   }
 }
 
@@ -230,7 +272,7 @@ nav {
 
 #sliders {
   width: 960px;
-  height: 525px;
+  height: 500px;
   margin-top: 50px;
   position: relative;
 
@@ -287,18 +329,18 @@ nav {
   }
 
   .arrow_down {
-    width: 70px;
+    width: 60px;
     height: 50px;
     background-color: $white;
     @include border-radius(20px, 20px);
     position: absolute;
     top: 470px;
-    left: 450px;
+    left: 455px;
 
     .content {
       width: 10px;
       height: 10px;
-      margin: 10px 0px 0px 20px;
+      margin: 10px 0px 0px 15px;
 
       .arrow {
         width: 0;
@@ -313,11 +355,130 @@ nav {
 }
 
 /*----------------------------------------*/
+/*                 SERVICE                */
+/*----------------------------------------*/
+
+section.service {
+  padding-left: 20px;
+  height: 450px;
+  overflow: hidden;
+  position: relative;
+  @include pie-clearfix;
+
+  article.left_col {
+    width: 50%;
+    float: left;
+    overflow: hidden;
+
+    ul > li {
+      font-size: 1.2em;
+    }
+
+    p {
+      margin: 20px 0px;
+    }
+  }
+
+  article.right_col {
+    width: 50%;
+    float: right;
+    overflow: hidden;
+
+    h3 {
+      margin-left: 20px;
+    }
+
+    img {
+      margin-left: 20px;
+      position: absolute;
+      bottom: 0px;
+    }
+  }
+}
+
+/*************** FORM COMMAND ***************/
+
+section.form_service {
+  height: 270px;
+  width: 960px;
+  margin-top: 30px;
+  background-color: $light_green;
+
+  article {
+    padding: 20px 0px 20px 20px;
+
+    form {
+      span {
+        font-size: 1.2em;
+        float: left;
+        color: $white;
+        margin-bottom: 10px;
+      }
+
+      p {
+        color: $white;
+      } 
+
+      input {
+        height: 20px;
+        width: 150px;
+        margin-bottom: 5px;
+        float: right;
+      }
+
+      .column_1 {
+        h5 {
+          margin-bottom: 30px;
+        }
+      }
+
+      .column_2 {
+        margin-top: 25px;
+      }
+
+      .column_3 {
+        padding-top: 25px;
+
+        .span2 {
+          margin-left: 0px;
+
+          input {
+            width: 20px;
+
+            float: left;
+          }
+
+          label {
+            color: $white;
+            margin-bottom: 10px;
+          }
+        }
+
+        .submit_command {
+          width: 280px;
+          height: 50px;
+          background-color: $white;
+          margin: 30px 30px 0px 0px;
+          font-size: 1.6em;
+          color: $light_green;
+          border: 1px solid $white;
+          border-bottom: 3px solid $white; 
+          border-right: 3px solid $white;
+          @include border-radius(10px, 10px);
+          @include box-shadow($black 1px 1px 5px 0);
+        }
+      }
+    }
+  }
+}
+
+/*----------------------------------------*/
 /*                 FOOTER                 */
 /*----------------------------------------*/
 
 footer.main {
   p {
+    font-size: 1em;
     width: 530px;
     margin: 0 auto;
   }
