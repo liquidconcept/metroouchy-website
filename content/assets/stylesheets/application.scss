@@ -734,6 +734,94 @@ section.form_perfumery {
 }
 
 /*----------------------------------------*/
+/*                 EVENTS                 */
+/*----------------------------------------*/
+
+section.events {
+  height: 400px;
+  width: 960px;
+  padding: 20px 0px 20px 20px;
+
+  article.header {
+    p {
+      width: 360px;
+      float: right;
+
+      .square {
+        float: right;
+      }
+    }
+  }
+
+  article.agenda {
+    .table {
+      .date {
+        width: 120px;
+      }
+
+      .logo {
+        width: 210px;
+
+        img {
+          width: 200px;
+        }
+      }
+
+      .description > p {
+        margin-top: 20px;
+      }
+    }
+  }
+}
+
+/*----------------------------------------*/
+/*                 EVENTS                 */
+/*----------------------------------------*/
+
+section.contact {
+  height: 400px;
+  padding: 20px 0px 20px 20px;
+
+  .square {
+    margin: 0px 10px 0px 0px;
+  }
+
+  h6 {
+    color: $black;
+    font-weight: normal;
+  }
+
+  p {
+    font-size: 0.9em;
+  }
+
+  article.header {
+    padding-left: 20px;
+  }
+
+  article.flon {
+    div {
+      margin: 0px 10px 0px 0px;
+    }
+  }
+
+  article.ouchy {
+    div {
+      margin: 0px 10px 0px 0px;
+    }
+  }
+
+  .maps {
+    .map {
+      height: 300px;
+      width: 100%;
+      overflow: hidden;
+      margin: 30px 0px;
+    }
+  }
+}
+
+/*----------------------------------------*/
 /*                 FOOTER                 */
 /*----------------------------------------*/
 
