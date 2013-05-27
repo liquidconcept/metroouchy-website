@@ -2,8 +2,11 @@
 @import "compass/typography/text/replacement";
 @import "compass/utilities/general/clearfix";
 @import "compass/css3/border-radius";
+@import "compass/css3/box-shadow";
 
-@import url(http://fonts.googleapis.com/css?family=Titillium+Web);
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,700,300italic);
+
+@import "bootstrap";
 
 /*----------------------------------------*/
 /*                 COLORS                 */
@@ -11,9 +14,11 @@
 
 $white: #FFF;
 $black: #000;
+$light_grey: #E6E6E6;
 $grey: #8E9AA4;
 $dark_grey: #4C4C4E;
 $green: #A4C828;
+$light_green: #B4D334;
 $red: #6F0421;
 
 /*----------------------------------------*/
@@ -27,6 +32,88 @@ $red: #6F0421;
 
   a {
     color: $red;
+  }
+
+  .doted {
+    border: 3px dotted $grey;
+    margin: 30px 0px;
+  }
+
+  .square {
+    width: 20px;
+    height: 20px;
+    float: left;
+  }
+
+  .green {
+    background-color: $green;
+    margin-left: 5px;
+  }
+
+  .red {
+    background-color: $red;
+  }
+
+  .dot_title {
+    width: 30px;
+    height: 30px;
+    background-color: $dark_grey;
+    @include border-radius(20px, 20px);
+    float: left;
+  }
+
+  .round {
+    width: 300px;
+    height: 300px;
+    margin: 30px 0px 0px 25px;
+    @include border-radius(150px, 150px);
+  }
+
+  p {
+    font-size: 1.2em;
+  }
+
+  h2 {
+    font-size: 2em;
+    color: $dark_grey;
+    text-transform: uppercase;
+    margin: 0px 0px 20px 40px;
+  }
+
+  h3 {
+    font-size: 1.8em;
+    color: $grey;
+    margin-bottom: 10px;
+  }
+
+  h4 {
+    font-size: 1.6em;
+    color: $grey;
+    margin-bottom: 20px;
+  }
+
+  h5 {
+    font-size: 1.6em;
+    color: $white;
+    margin-bottom: 20px;
+  }
+
+  h6 {
+    font-size: 1.2em;
+    color: $black;
+    font-weight: bold;
+    margin: 10px 0px;
+  }
+
+  .line {
+    background-color: $light_grey;
+    border-top: 1px solid $grey;
+    border-bottom: 1px solid $grey;
+    margin-left: 0px;
+
+    h6 {
+      padding: 0px 20px;
+    }
   }
 }
 
@@ -53,10 +140,10 @@ header.main {
   .schedule {
     width: 560px;
     margin: 0 auto;
-    padding-top: 58px;
+    padding-top: 50px;
     position: relative;
 
-    p{
+    p {
       font-size: 0.9em;
     }
 
@@ -70,7 +157,7 @@ header.main {
     .flon {
       width: 187px;
       float: left;
-      margin-left: 40px;
+      margin-left: 20px;
     }
 
     .date {
@@ -109,6 +196,7 @@ header.main {
 /******************* NAV *******************/
 
 nav {
+  @include pie-clearfix;
   position: relative;
 
   .bar {
@@ -125,10 +213,29 @@ nav {
     @include border-radius(10px, 10px);
   }
 
+  .legend {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+
+    p {
+      margin-bottom: 10px;
+      font-size: 1em;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: $grey;
+    }
+  }
+
   .circle_home {
     position: absolute;
     left: 70px;
     top: -5px;
+  }
+
+  .home {
+    left: 70px;
+    top: 30px;
   }
 
   .circle_service {
@@ -137,10 +244,20 @@ nav {
     top: -5px;
   }
 
+  .service {
+    left: 230px;
+    top: 30px;
+  }
+
   .circle_institut {
     position: absolute;
     left: 390px;
     top: -5px;
+  }
+
+  .institut {
+    left: 390px;
+    top: 30px;
   }
 
   .circle_parfumerie {
@@ -149,10 +266,20 @@ nav {
     top: -5px;
   }
 
+  .parfumerie {
+    left: 550px;
+    top: 30px;
+  }
+
   .circle_events {
     position: absolute;
     left: 710px;
     top: -5px;
+  }
+
+  .events {
+    left: 710px;
+    top: 30px;
   }
 
   .circle_contact {
@@ -160,7 +287,334 @@ nav {
     left: 870px;
     top: -5px;
   }
+
+  .contact {
+    left: 870px;
+    top: 30px;
+  }
 }
+
+/***************** SLIDERS *****************/
+
+#sliders {
+  width: 960px;
+  height: 500px;
+  margin-top: 50px;
+  position: relative;
+
+  .name {
+    width: 250px;
+    height: 40px;
+    background-color: $white;
+    @include border-radius(20px, 20px);
+  }
+
+  .content_name {
+    height: 20px;
+    width: 170px;
+    margin: 10px auto;
+
+    span {
+      margin-left: 5px;
+      font-size: 1em;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: $grey;
+    }
+
+    .last {
+      float: right;
+    }
+  }
+
+  #slider_flon {
+    width: 470px;
+    overflow: hidden;
+    float: left;
+    border-left: 10px solid $white;
+    position: relative;
+
+    .name {
+      position: absolute;
+      top: 30px;
+      left: -20px;
+    }
+  }
+
+  #slider_ouchy {
+    width: 470px;
+    overflow: hidden;
+    float: right;
+    position: relative;
+
+    .name {
+      position: absolute;
+      top: 30px;
+      right: -20px;
+    }
+  }
+
+  .arrow_down {
+    width: 60px;
+    height: 50px;
+    background-color: $white;
+    @include border-radius(20px, 20px);
+    position: absolute;
+    top: 470px;
+    left: 455px;
+
+    .content {
+      width: 10px;
+      height: 10px;
+      margin: 10px 0px 0px 15px;
+
+      .arrow {
+        width: 0;
+        height: 0;
+        margin: 0 auto;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-top: 15px solid $grey;
+      }
+    }
+  }
+}
+
+/*----------------------------------------*/
+/*                 SERVICE                */
+/*----------------------------------------*/
+
+section.service {
+  padding-left: 20px;
+  height: 450px;
+  overflow: hidden;
+  position: relative;
+  @include pie-clearfix;
+
+  article.left_col {
+    width: 50%;
+    float: left;
+    overflow: hidden;
+
+    ul > li {
+      font-size: 1.2em;
+    }
+
+    p {
+      margin: 20px 0px;
+    }
+  }
+
+  article.right_col {
+    width: 50%;
+    float: right;
+    overflow: hidden;
+
+    h3 {
+      margin-left: 20px;
+    }
+
+    img {
+      margin-left: 20px;
+      position: absolute;
+      bottom: 0px;
+    }
+  }
+}
+
+/*************** FORM COMMAND ***************/
+
+section.form_service {
+  height: 270px;
+  width: 960px;
+  margin-top: 30px;
+  background-color: $light_green;
+
+  article {
+    padding: 20px 0px 20px 20px;
+
+    form {
+      span {
+        font-size: 1.2em;
+        float: left;
+        color: $white;
+        margin-bottom: 10px;
+      }
+
+      p {
+        color: $white;
+      } 
+
+      input {
+        height: 20px;
+        width: 150px;
+        margin-bottom: 5px;
+        float: right;
+      }
+
+      .column_1 {
+        h5 {
+          margin-bottom: 30px;
+        }
+      }
+
+      .column_2 {
+        margin-top: 25px;
+      }
+
+      .column_3 {
+        padding-top: 25px;
+
+        .span2 {
+          margin-left: 0px;
+
+          input {
+            width: 20px;
+            float: left;
+          }
+
+          label {
+            color: $white;
+            margin-bottom: 10px;
+          }
+        }
+
+        .submit_command {
+          width: 280px;
+          height: 50px;
+          background-color: $white;
+          margin: 30px 30px 0px 0px;
+          font-size: 1.6em;
+          color: $light_green;
+          border: 1px solid $white;
+          border-bottom: 3px solid $white; 
+          border-right: 3px solid $white;
+          @include border-radius(10px, 10px);
+          @include box-shadow($black 1px 1px 5px 0);
+        }
+      }
+    }
+  }
+}
+
+/*----------------------------------------*/
+/*               INSTITUTE                */
+/*----------------------------------------*/
+
+section.institute {
+  article.header {
+    padding: 20px 0px 20px 20px;
+
+    p {
+      width: 360px;
+      float: right;
+
+      .square {
+        float: right;
+      }
+    }
+  }
+
+  .title_left {
+    margin-left: 60px;
+  }
+
+  .more {
+    height: 10px;
+    font-size: 1em;
+    font-weight: bold;
+    color: $red;
+    float: right;
+  }
+
+  ul {
+    li {
+      border: 2px solid $red;
+      padding: 5px 5px;
+      margin-top: 10px;
+    }
+  }
+
+  article.care {
+    padding: 20px 0px 20px 20px;
+    .face {
+    }
+    .body {
+    }
+    .ritual {
+    }
+  }
+
+  article.care_2 {
+    padding: 20px 0px 20px 20px;
+  }
+}
+
+/*************** FORM COMMAND ***************/
+
+section.form_institute {
+  height: 270px;
+  width: 960px;
+  margin-top: 10px;
+  background-color: $red;
+
+  article {
+    padding: 20px 0px 20px 20px;
+
+    form {
+      span {
+        font-size: 1.2em;
+        float: left;
+        color: $white;
+        margin-bottom: 10px;
+      }
+
+      p {
+        color: $white;
+      } 
+
+      input {
+        height: 20px;
+        width: 150px;
+        margin-bottom: 5px;
+        float: right;
+      }
+
+      .column_1 {
+        h5 {
+          margin-bottom: 30px;
+        }
+      }
+
+      .column_2 {
+        margin-top: 25px;
+      }
+
+      .column_3 {
+        padding-top: 55px;
+
+          input, span {
+            margin-right: 30px;
+          }
+        }
+
+      .submit_command {
+        width: 280px;
+        height: 50px;
+        background-color: $white;
+        margin: 50px 30px 0px 0px;
+        font-size: 1.4em;
+        color: $red;
+        border: 1px solid $white;
+        border-bottom: 3px solid $white; 
+        border-right: 3px solid $white;
+        @include border-radius(10px, 10px);
+        @include box-shadow($black 1px 1px 5px 0);
+      }
+    }
+  }
+}
+
 
 /*----------------------------------------*/
 /*                 FOOTER                 */
@@ -168,6 +622,7 @@ nav {
 
 footer.main {
   p {
+    font-size: 1em;
     width: 530px;
     margin: 0 auto;
   }

@@ -29,12 +29,67 @@
       <nav>
         <div class="bar"></div>
         <div class="circle circle_home"></div>
+        <div class="legend home">
+          <p>acceuil</p>
+          <div class="square red"></div>
+          <div class="square green"></div>
+        </div>
         <div class="circle circle_service"></div>
+        <div class="legend service">
+          <p>service</p>
+          <div class="square red"></div>
+          <div class="square green"></div>
+        </div>
         <div class="circle circle_institut"></div>
+        <div class="legend institut">
+          <p>institut</p>
+          <div class="square red"></div>
+        </div>
         <div class="circle circle_parfumerie"></div>
+        <div class="legend parfumerie">
+          <p>parfumerie</p>
+          <div class="square red"></div>
+        </div>
         <div class="circle circle_events"></div>
+        <div class="legend events">
+          <p>évenements</p>
+          <div class="square red"></div>
+        </div>
         <div class="circle circle_contact"></div>
+        <div class="legend contact">
+          <p>contact</p>
+          <div class="square red"></div>
+          <div class="square green"></div>
+        </div>
       </nav>
+      <section id="sliders">
+        <article id="slider_flon">
+          <div class="name">
+            <div class="content_name">
+              <div class="square green"></div>
+              <span>metro flon</span>
+              <div class="square green last"></div>
+            </div>
+          </div>
+          <img src="<%= image_path('flon_1.jpg') %>" />
+        </article>
+        <article id="slider_ouchy">
+          <img src="<%= image_path('ouchy_1.jpg') %>" />
+          <div class="name">
+            <div class="content_name">
+              <div class="square red"></div>
+              <span>metro ouchy</span>
+              <div class="square red last"></div>
+            </div>
+          </div>
+        </article>
+        <div class="arrow_down">
+          <div class="content">
+            <div class="arrow"></div>
+          </div>
+        </div>
+      </section>
+      <hr class="doted" />
       <section class="content">
 
         <%= yield %>

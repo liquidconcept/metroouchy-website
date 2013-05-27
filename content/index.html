@@ -1,0 +1,152 @@
+<section class="service">
+  <article class="left_col">
+    <div class="dot_title"></div><h2>services</h2>
+    <h4>Pharmacies indépendantes</h4>
+    <ul>
+      <li>- Conseils et suivi thérapeutique</li>
+      <li>- Carte fidélité gratuite</li>
+      <li>- Services de livraison à domicile gratuit</li>
+      <li>- Location de tire-lait, pèse bébé, cannes anglaises</li>
+      <li>- Suivi therapeutique / semainier / conseils spécialisés</li>
+      <li>- Service de livraison gratuite</li>
+      <li>- Carte fidélité gratuite</li>
+    </ul>
+    <h6>Un service de formulaire de commande pour :</h6>
+    <ul>
+      <li>- les clients travaillant dans le coin ou les clients réguliers</li>
+      <li>- la livraison ou le passage pour chercher à la pharmacie</li>
+    </ul>
+    <p>Un système simple avec uniquement vos nom, prénom, adresse, téléphone et email.</p>
+  </article>
+  <article class="right_col">
+    <h3>2 pharmacies</h3>
+    <h3>2 lieux</h3>
+    <h3>un service de qualité</h3>
+    <img src="<%= image_path('ouchy_2.jpg') %>">
+  </article>
+</section>
+<section class="form_service">
+  <article>
+    <form method="post" action="/command">
+      <div class="row">
+        <fieldset>
+          <div class="span4 column_1">
+            <h5>Formulaire de commande</h5>
+            <span>Nom, Prénom :</span>
+            <input type="text" name="command[name]" required /><br />
+            <span>Téléphone :</span>
+            <input type="text" name="command[phone]" required />
+          </div>
+          <div class="span4 column_2">
+            <span>Message</span>
+            <textarea rows="12" cols="39" name="command[message]" required></textarea>
+          </div>
+          <div class="span4 column_3">
+            <div class="span2">
+              <p>Livraison</p><br />
+              <label><input type="checkbox" name="command[deliver]" value="true" id="delivery_address">à domicile</label>
+            </div>
+            <div class="span2">
+              <p>Passer chercher à la pharmacie</p><br />
+              <label><input type="checkbox" name="command[deliver]" value="true" id="delivery_address">MetroOuchy</label><br /><br />
+              <label><input type="checkbox" name="command[deliver]" value="true" id="delivery_address">MetroFlon</label>
+            </div>
+            <input type="submit" value="Commander" class="submit_command">
+          </div>
+        </fieldset>
+      </div>
+    </form>
+  </article>
+</section>
+<hr class="doted" />
+<section class="institute">
+  <article class="header">
+    <p>Uniquement à la pharmacie MetroOuchy <span class="square red"></span></p>
+    <div class="dot_title"></div><h2>institut</h2>
+    <h4>Cabine de soin</h4>
+  </article>
+   <div class="line"><h6>Les soins de base</h6></div>
+   <article class="row care">
+     <div class="face span4">
+      <h6>Visage</h6>
+      <ul>
+        <li>soin <span class="more">+</span></li>
+        <li>soin équilibrant <span class="more">+</span></li>
+        <li>soin anti-âge <span class="more">+</span></li>
+        <li>soin eye suprême <span class="more">+</span></li>
+      </ul>
+     </div>
+     <div class="body span4">
+      <h6>Corps</h6>
+      <ul>
+        <li>body strategist <span class="more">+</span></li>
+        <li>boue de monticelli <span class="more">+</span></li>
+        <li>vital leg <span class="more">+</span></li>
+        <li>glorius skin buste <span class="more">+</span></li>
+        <li>d-âge <span class="more">+</span></li>
+      </ul>
+     </div>
+     <div class="ritual span4">
+      <h6>Rituel</h6>
+        <ul>
+        <li>massage corps <span class="more">+</span></li>
+        <li>visage et corps <span class="more">+</span></li>
+        <li>aromasoul gommage <span class="more">+</span></li>
+        <li>aromasoul dos et nuque <span class="more">+</span></li>
+        <h6>Soin visage homme</h6>
+        <li>man space <span class="more">+</span></li>
+      </ul>
+     </div>
+   </article>
+   <div class="line row"><h6 class="span5">Epilations et maquillages</h6><h6 class="title_left span5">Manucures et pedicures</h6></div>
+   <article class="row care_2">
+    <div class="makeup span6">
+      <ul>
+        <li>Epilations <span class="more">+</span></li>
+        <li>Maquillage <span class="more">+</span></li>
+      </ul>
+    </div>
+    <div class="cure span6">
+      <ul>
+        <li>Manucure <span class="more">+</span></li>
+        <li>Pedicure <span class="more">+</span></li>
+      </ul>
+    </div>
+    <div class="row">
+      <img src="<%= image_path('manucure.jpg') %>" class="span4 round">
+      <img src="<%= image_path('massage_1.jpg') %>" class="span4 round">
+      <img src="<%= image_path('massage_2.jpg') %>" class="span4 round">
+    </div>
+   </article>
+</section>
+<section class="form_institute">
+  <article>
+    <form method="post" action="/appointment">
+      <div class="row">
+        <fieldset>
+          <div class="span4 column_1">
+            <h5>Prise de rendez-vous</h5>
+            <span>Nom, Prénom :</span>
+            <input type="text" name="appointment[name]" required /><br />
+            <span>Téléphone :</span>
+            <input type="text" name="appointment[phone]" required />
+            <span>Email :</span>
+            <input type="email" name="appointment[email]" required />
+          </div>
+          <div class="span4 column_2">
+            <span>Prestation</span>
+            <textarea rows="12" cols="39" name="appointment[message]" required></textarea>
+          </div>
+          <div class="span4 column_3">
+            <span>Date :</span>
+            <input type="date" name="appointment[date]" required /><br /><br />
+            <span>Heure :</span>
+            <input type="email" name="appointment[time]" required />
+            <input type="submit" value="Prendre un rendez-vous" class="submit_command">
+          </div>
+        </fieldset>
+      </div>
+    </form>
+  </article>
+</section>
+<hr class="doted" />
