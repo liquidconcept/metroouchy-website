@@ -90,6 +90,7 @@ $red: #6F0421;
     font-size: 1.6em;
     color: $grey;
     margin-bottom: 20px;
+    font-weight: bold;
   }
 
   h5 {
@@ -100,7 +101,7 @@ $red: #6F0421;
 
   h6 {
     font-size: 1.2em;
-    color: $black;
+    color: $grey;
     font-weight: bold;
     margin: 10px 0px;
   }
@@ -615,6 +616,122 @@ section.form_institute {
   }
 }
 
+/*----------------------------------------*/
+/*               PARFUMERIE               */
+/*----------------------------------------*/
+
+section.perfumery {
+  height: 1700px;
+  padding: 20px 0px 20px 20px;
+
+  article.header {
+    p {
+      width: 360px;
+      float: right;
+
+      .square {
+        float: right;
+      }
+    }
+  }
+
+  article.product {
+    .name {
+      font-weight: bold;
+    }
+  }
+
+  article.brand {
+    h4 {
+      margin-top: 30px;
+    }
+
+    .exclusive > img {
+      width: 150px;
+      margin: 30px 0px 0px 150px;
+    }
+
+    .logo > img {
+      width: 150px;
+      margin: 20px 0px 0px 20px;
+    }
+  }
+}
+
+/************ FORM COMMAND PRODUCT ************/
+
+section.form_perfumery {
+  height: 270px;
+  width: 960px;
+  margin-top: 30px;
+  background-color: $red;
+
+  article {
+    padding: 20px 0px 20px 20px;
+
+    form {
+      span {
+        font-size: 1.2em;
+        float: left;
+        color: $white;
+        margin-bottom: 10px;
+      }
+
+      p {
+        color: $white;
+      } 
+
+      input {
+        height: 20px;
+        width: 150px;
+        margin-bottom: 5px;
+        float: right;
+      }
+
+      .column_1 {
+        h5 {
+          margin-bottom: 30px;
+        }
+      }
+
+      .column_2 {
+        margin-top: 25px;
+      }
+
+      .column_3 {
+        padding-top: 25px;
+
+        .span2 {
+          margin-left: 0px;
+
+          input {
+            width: 20px;
+            float: left;
+          }
+
+          label {
+            color: $white;
+            margin-bottom: 10px;
+          }
+        }
+
+        .submit_command {
+          width: 280px;
+          height: 50px;
+          background-color: $white;
+          margin: 30px 30px 0px 0px;
+          font-size: 1.6em;
+          color: $red;
+          border: 1px solid $white;
+          border-bottom: 3px solid $white; 
+          border-right: 3px solid $white;
+          @include border-radius(10px, 10px);
+          @include box-shadow($black 1px 1px 5px 0);
+        }
+      }
+    }
+  }
+}
 
 /*----------------------------------------*/
 /*                 FOOTER                 */

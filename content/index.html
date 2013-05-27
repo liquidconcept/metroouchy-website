@@ -150,3 +150,112 @@
   </article>
 </section>
 <hr class="doted" />
+<section class="perfumery">
+  <article class="header">
+    <p>Uniquement à la pharmacie MetroOuchy <span class="square red"></span></p>
+    <div class="dot_title"></div><h2>parfumerie</h2>
+    <h4>La nouveté de la parfumerie</h4>
+  </article>
+  <article class="row product">
+    <div class="span4">
+      <h6>Les soins</h6>
+      <p class="name">Valmont BODYCONTROL 100ml / 250ml</p>
+      <img src="<%= image_path('product.png') %>">
+      <p class="desciption">Venez découvrir la nouvelle gamme anti-cellulite de Valmont. Un soin cabine offert à l'achat de deux produits Valmont.</p>
+    </div>
+    <div class="span4">
+      <h6>Les parfums</h6>
+      <p class="name">Valmont BODYCONTROL 100ml / 250ml</p>
+      <img src="<%= image_path('product.png') %>">
+      <p class="desciption">Venez découvrir la nouvelle gamme anti-cellulite de Valmont. Un soin cabine offert à l'achat de deux produits Valmont.</p>
+    </div>
+    <div class="span4">
+      <h6>Les maquillages</h6>
+      <p class="name">Valmont BODYCONTROL 100ml / 250ml</p>
+      <img src="<%= image_path('product.png') %>">
+      <p class="desciption">Venez découvrir la nouvelle gamme anti-cellulite de Valmont. Un soin cabine offert à lachat de deux produits Valmont.</p>
+    </div>
+  </article>
+  <article class="brand">
+    <h4>Les marques exclusives</h4>
+    <p>Hymenaeos, molestie, malesuada Praesent! Amet Duis, hac Etiam Phasellus adipiscing per blandit facilisi condimentum et. Vestibulum. Integer ridiculus. Facilisi dictum euismod ullamcorper felis. Condimentum, eu risus vehicula ornare aptent ultrices.</p>
+    <div class="row">
+      <div class="span6 exclusive"><img src="<%= image_path('erno_laszlo.png') %>"></div>
+      <div class="span6 exclusive"><img src="<%= image_path('givenchy.png') %>"></div>
+    </div>
+    <h4>Les marques disponibles</h4>
+    <p>Hymenaeos, molestie, malesuada Praesent! Amet Duis, hac Etiam Phasellus adipiscing per blandit facilisi condimentum et. Vestibulum. Integer ridiculus. Facilisi dictum euismod ullamcorper felis. Condimentum, eu risus vehicula ornare aptent ultrices.</p>
+    <div class="row">
+      <div class="span3 logo">
+        <img src="<%= image_path('clarins.png') %>">
+        <img src="<%= image_path('bulgari.png') %>">
+        <img src="<%= image_path('ahava.png') %>">
+        <img src="<%= image_path('juilette.png') %>">
+        <img src="<%= image_path('louis_widmer.png') %>">
+        <img src="<%= image_path('reminissence.png') %>">
+        <img src="<%= image_path('van_cleef.png') %>">
+      </div>
+      <div class="span3 logo">
+        <img src="<%= image_path('dior.png') %>">
+        <img src="<%= image_path('cellcosmet.png') %>">
+        <img src="<%= image_path('garancia.png') %>">
+        <img src="<%= image_path('lancome.png') %>">
+        <img src="<%= image_path('lutens.png') %>">
+        <img src="<%= image_path('la_prairie.png') %>">
+        <img src="<%= image_path('ysl.png') %>">
+      </div>
+      <div class="span3 logo">
+        <img src="<%= image_path('creed.jpg') %>">
+        <img src="<%= image_path('erborian.png') %>">
+        <img src="<%= image_path('guerlain.jpg') %>">
+        <img src="<%= image_path('lanvin.png') %>">
+        <img src="<%= image_path('opi.jpg') %>">
+        <img src="<%= image_path('sisley.png') %>">
+      </div>
+      <div class="span3 logo">
+        <img src="<%= image_path('bond_ny.png') %>">
+        <img src="<%= image_path('etro.png') %>">
+        <img src="<%= image_path('hermes.png') %>">
+        <img src="<%= image_path('lierac.png') %>">
+        <img src="<%= image_path('rabanne.png') %>">
+        <img src="<%= image_path('valmont.png') %>">
+      </div>
+    </div>
+  </article>
+</section>
+<section class="form_perfumery">
+  <article>
+    <form method="post" action="/command_product">
+      <div class="row">
+        <fieldset>
+          <div class="span4 column_1">
+            <h5>Formulaire de commande</h5>
+            <span>Nom, Prénom :</span>
+            <input type="text" name="command_product[name]" required /><br />
+            <span>Téléphone :</span>
+            <input type="text" name="command_product[phone]" required />
+            <span>Email :</span>
+            <input type="email" name="command_product[email]" required />
+          </div>
+          <div class="span4 column_2">
+            <span>Produits</span>
+            <textarea rows="12" cols="39" name="command_product[product]" required></textarea>
+          </div>
+          <div class="span4 column_3">
+            <div class="span2">
+              <p>Livraison</p><br />
+              <label><input type="checkbox" name="command_product[deliver]" value="true" id="delivery_address">à domicile</label>
+            </div>
+            <div class="span2">
+              <p>Passer chercher à la pharmacie</p><br />
+              <label><input type="checkbox" name="command_product[deliver]" value="true" id="delivery_address">MetroOuchy</label><br /><br />
+              <label><input type="checkbox" name="command_product[deliver]" value="true" id="delivery_address">MetroFlon</label>
+            </div>
+            <input type="submit" value="Commander" class="submit_command">
+          </div>
+        </fieldset>
+      </div>
+    </form>
+  </article>
+</section>
+<hr class="doted" />

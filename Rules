@@ -17,11 +17,6 @@ compile %r{/assets/.+/} do
   # don’t filter other assets items
 end
 
-# compile '/' do
-#   filter :erb
-#   layout 'home'
-# end
-
 compile '*' do
   if item.binary?
     # don’t filter binary items
