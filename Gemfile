@@ -2,6 +2,7 @@
 source 'http://rubygems.org'
 
 gem 'rack'
+gem 'carrierwave'
 
 group :nanoc do
   gem 'nanoc'

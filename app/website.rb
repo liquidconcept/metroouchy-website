@@ -1,13 +1,16 @@
 # app.rb
 require 'sinatra'
 require 'sinatra/activerecord'
+require 'carrierwave'
+require 'carrierwave/orm/activerecord'
+require './app/uploaders/image_uploader'
 require './app/models/new'
+
 
 set :database, "sqlite3:///db/database.sqlite3"
 
 module Application
   class Website < Sinatra::Base
-
 
   end
 
@@ -20,6 +23,12 @@ module Application
     get '/' do
       @news = New.all
       erb :"admin/index"
+    end
+
+    post '/news/:id' do
+      @new = New.find(params[:id])
+      @new.update_attributes(params[:new])
+      redirect "/admin"
     end
 
   end

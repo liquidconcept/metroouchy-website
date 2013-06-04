@@ -3,8 +3,8 @@ class CreateNews < ActiveRecord::Migration
      create_table :news do |t|
       t.string :category
       t.string :title
-      t.string :body
       t.text :description
+      t.string :image
       t.timestamps
     end
 

@@ -1,1 +1,52 @@
-<h1>hello</h1>
+<html>
+  <head>
+    <title>Administration</title>
+    <link rel="stylesheet" href="/assets/application.css">
+  </head>
+  <body>
+    <section class="main head">
+      <section class="content">
+
+        <hr class="doted" />
+        <section class="perfumery">
+          <article class="header">
+            <div class="dot_title"></div>
+            <p>
+              Uniquement à la pharmacie MetroOuchy
+              <span class="red square" />
+            </p>
+            <h2>Parfumerie</h2>
+            <h4>La nouveté de la parfumerie</h4>
+          </article>
+
+            <article class="row product">
+              <% @news.each do |news| %>
+                <div class="span4">
+                  <h6><%= news.category %></h6>
+                  <p class="name"><%= news.title %></p>
+                  <img src="<%= news.image.url %>" style="width: 250px;" />
+                  <p class="description"><%= news.description %></p>
+                  <br/>
+
+                  <form action="/admin/news/<%= news.id %>" method="post" enctype="multipart/form-data">
+                    <input id="category" name="new[category]" type="text" value="<%= news.category %>" />
+                    <br />
+                    <input id="title" name="new[title]" type="text" value="<%= news.title %>" />
+                    <br />
+                    <input id="file" name="new[image]" type="file" />
+                    <br />
+                    <textarea id="description" name="new[description]" rows="5"><%= news.description %></textarea>
+                    <br />
+
+                    <input type="submit" value="Mettre à jour" />
+                  </form>
+                </div>
+              <% end %>
+          </article>
+
+        </section>
+      </section>
+    </section>
+  </body>
+</html>
+
