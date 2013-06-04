@@ -57,6 +57,18 @@ $red: #6F0421;
     background-color: $red;
   }
 
+  .email_red {
+    font-size: 0.9em;
+    color: $red;
+    text-decoration: underline;
+  }
+
+  .email_green {
+    font-size: 0.9em;
+    color: $green;
+    text-decoration: underline;
+  }
+
   .dot_title {
     width: 30px;
     height: 30px;
