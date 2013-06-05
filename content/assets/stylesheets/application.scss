@@ -212,6 +212,7 @@ header.main {
 /******************* NAV *******************/
 
 nav {
+  height: 80px;
   @include pie-clearfix;
   position: relative;
 
@@ -229,18 +230,27 @@ nav {
     @include border-radius(10px, 10px);
   }
 
-  .legend {
-    width: 100px;
-    height: 100px;
-    position: absolute;
+  #scroll_menu {
+    height: 70px;
+    margin-top: -50px;
 
-    p {
-      margin-bottom: 10px;
-      font-size: 1em;
-      font-weight: bold;
-      text-transform: uppercase;
-      color: $grey;
+    .legend {
+      width: 100px;
+      height: 70px;
+      position: absolute;
+
+      p {
+        margin-bottom: 10px;
+        font-size: 1em;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: $grey;
+      }
     }
+  }
+
+  a {
+    text-decoration: none;
   }
 
   .circle_home {
@@ -310,6 +320,28 @@ nav {
   }
 }
 
+.navfixed {
+  width: 960px;
+  margin-top: 0px!important;
+  padding-bottom: 10px;
+  position: fixed;
+  top: 0px;
+  background-color: $white;
+  z-index: 1000;
+
+  .legend {
+    margin-top: -20px;
+  }
+
+  .border_bottom {
+    width: 960px;
+    height: 3px;
+    background-color: $red;
+    position: absolute;
+    bottom: 10px;
+  }
+}
+
 /***************** SLIDERS *****************/
 
 #sliders {
@@ -344,10 +376,10 @@ nav {
   }
 
   #slider_flon {
-    width: 470px;
+    width: 475px;
     overflow: hidden;
     float: left;
-    border-left: 10px solid $white;
+    border-left: 0px solid $white;
     position: relative;
 
     .name {
@@ -400,7 +432,7 @@ nav {
 /*                 SERVICE                */
 /*----------------------------------------*/
 
-section.service {
+section#service {
   padding-left: 20px;
   height: 450px;
   overflow: hidden;
@@ -517,7 +549,7 @@ section.form_service {
 /*               INSTITUTE                */
 /*----------------------------------------*/
 
-section.institute {
+section#institute {
   article.header {
     padding: 20px 0px 20px 20px;
 
@@ -635,7 +667,7 @@ section.form_institute {
 /*               PARFUMERIE               */
 /*----------------------------------------*/
 
-section.perfumery {
+section#perfumery {
   height: 1850px;
   padding: 20px 0px 20px 20px;
 
@@ -752,7 +784,7 @@ section.form_perfumery {
 /*                 EVENTS                 */
 /*----------------------------------------*/
 
-section.events {
+section#events {
   height: 400px;
   width: 940px;
   padding: 20px 0px 20px 20px;
@@ -793,7 +825,7 @@ section.events {
 /*                 EVENTS                 */
 /*----------------------------------------*/
 
-section.contact {
+section#contact {
   height: 400px;
   padding: 20px 0px 20px 20px;
 
