@@ -7,7 +7,7 @@
     <script src="<%= javascript_path 'application' %>"></script>
   </head>
   <body>
-    <section class="main">
+    <article class="main">
       <header class="main">
         <h1 class="flon_logo">Métro Flon pharmacie</h1>
         <div class="schedule">
@@ -65,8 +65,8 @@
           <div class="border_bottom"></div>
         </div>
       </nav>
-      <section id="sliders">
-        <article id="slider_flon">
+      <article id="sliders">
+        <section id="slider_flon">
           <div class="name">
             <div class="content_name">
               <div class="square green"></div>
@@ -75,8 +75,8 @@
             </div>
           </div>
           <img src="<%= image_path('flon_1.jpg') %>" />
-        </article>
-        <article id="slider_ouchy">
+        </section>
+        <section id="slider_ouchy">
           <img src="<%= image_path('ouchy_1.jpg') %>" />
           <div class="name">
             <div class="content_name">
@@ -85,22 +85,23 @@
               <div class="square red last"></div>
             </div>
           </div>
-        </article>
+        </section>
         <div class="arrow_down">
           <div class="content">
             <div class="arrow"></div>
           </div>
         </div>
-      </section>
+      </article>
       <div class="doted"></div>
-      <section class="content">
+      <article class="content">
 
         <%= yield %>
 
-      </section>
+      </article>
       <footer class="main">
         <p>© 2011-2013 Pharmacies MetroOuchy & MetroFlon - création: <a href="http://www.liquid-concept.ch">Liquid Concept</a></p>
       </footer>
-    </section>
+
+    </article>
   </body>
 </html>

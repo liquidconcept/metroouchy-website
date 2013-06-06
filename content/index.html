@@ -1,5 +1,5 @@
-<section id="service">
-  <article class="left_col">
+<article id="service">
+  <section class="left_col">
     <div class="dot_title"></div><h2>services</h2>
     <h4>Pharmacies indépendantes</h4>
     <ul>
@@ -17,16 +17,16 @@
       <li>- la livraison ou le passage pour chercher à la pharmacie</li>
     </ul>
     <p>Un système simple avec uniquement vos nom, prénom, adresse, téléphone et email.</p>
-  </article>
-  <article class="right_col">
+  </section>
+  <section class="right_col">
     <h3>2 pharmacies</h3>
     <h3>2 lieux</h3>
     <h3>un service de qualité</h3>
     <img src="<%= image_path('ouchy_2.jpg') %>">
-  </article>
-</section>
-<section class="form_service">
-  <article>
+  </section>
+</article>
+<article class="form_service">
+  <section>
     <form method="post" action="/command">
       <div class="row">
         <fieldset>
@@ -56,17 +56,17 @@
         </fieldset>
       </div>
     </form>
-  </article>
-</section>
+  </section>
+</article>
 <div class="doted"></div>
-<section id="institute">
-  <article class="header">
+<article id="institute">
+  <section class="header">
     <p>Uniquement à la pharmacie MetroOuchy <span class="square red"></span></p>
     <div class="dot_title"></div><h2>institut</h2>
     <h4>Cabine de soin</h4>
-  </article>
+  </section>
    <div class="line"><h6>Les soins de base</h6></div>
-   <article class="row care">
+   <section class="row care">
      <div class="face span4">
       <h6>Visage</h6>
       <ul>
@@ -97,9 +97,9 @@
         <li>man space <span class="more">+</span></li>
       </ul>
      </div>
-   </article>
+   </section>
    <div class="line row"><h6 class="span5">Epilations et maquillages</h6><h6 class="title_left span5">Manucures et pedicures</h6></div>
-   <article class="row care_2">
+   <section class="row care_2">
     <div class="makeup span6">
       <ul>
         <li>Epilations <span class="more">+</span></li>
@@ -117,10 +117,10 @@
       <img src="<%= image_path('massage_1.jpg') %>" class="span4 round">
       <img src="<%= image_path('massage_2.jpg') %>" class="span4 round">
     </div>
-   </article>
-</section>
-<section class="form_institute">
-  <article>
+   </section>
+</article>
+<article class="form_institute">
+  <section>
     <form method="post" action="/appointment">
       <div class="row">
         <fieldset>
@@ -147,16 +147,16 @@
         </fieldset>
       </div>
     </form>
-  </article>
-</section>
+  </section>
+</article>
 <div class="doted"></div>
-<section id="perfumery">
-  <article class="header">
+<article id="perfumery">
+  <section class="header">
     <p>Uniquement à la pharmacie MetroOuchy <span class="square red"></span></p>
     <div class="dot_title"></div><h2>parfumerie</h2>
     <h4>La nouveté de la parfumerie</h4>
-  </article>
-  <article class="row product">
+  </section>
+  <section class="row product">
     <div class="span4">
       <h6>Les soins</h6>
       <p class="name">Valmont BODYCONTROL 100ml / 250ml</p>
@@ -175,8 +175,8 @@
       <img src="<%= image_path('product.png') %>">
       <p class="desciption">Venez découvrir la nouvelle gamme anti-cellulite de Valmont. Un soin cabine offert à lachat de deux produits Valmont.</p>
     </div>
-  </article>
-  <article class="brand">
+  </section>
+  <section class="brand">
     <h4>Les marques exclusives</h4>
     <p>Hymenaeos, molestie, malesuada Praesent! Amet Duis, hac Etiam Phasellus adipiscing per blandit facilisi condimentum et. Vestibulum. Integer ridiculus. Facilisi dictum euismod ullamcorper felis. Condimentum, eu risus vehicula ornare aptent ultrices.</p>
     <div class="row">
@@ -221,10 +221,10 @@
         <img src="<%= image_path('sisley.png') %>">
       </div>
     </div>
-  </article>
-</section>
-<section class="form_perfumery">
-  <article>
+  </sections>
+</article>
+<article class="form_perfumery">
+  <section>
     <form method="post" action="/command_product">
       <div class="row">
         <fieldset>
@@ -256,16 +256,16 @@
         </fieldset>
       </div>
     </form>
-  </article>
-</section>
+  </section>
+</article>
 <div class="doted"></div>
-<section id="events">
-  <article class="header">
+<article id="events">
+  <section class="header">
     <p>Uniquement à la pharmacie MetroOuchy <span class="square red"></span></p>
     <div class="dot_title"></div><h2>evenements</h2>
     <h4>Nos rendez-vous</h4>
-  </article>
-  <article class="agenda">
+  </section>
+  <section class="agenda">
     <table class="table">
       <tr>
         <td class="date">
@@ -307,14 +307,14 @@
         </td>
       </tr>
     </table>
-  </article>
-</section>
+  </section>
+</article>
 <div class="doted"></div>
-<section class="row" id="contact">
-  <article class="header">
+<article class="row" id="contact">
+  <section class="header">
     <div class="dot_title"></div><h2>Contact</h2>
-  </article>
-  <article class="flon span6">
+  </section>
+  <section class="flon span6">
     <h4>Pharmacie MetroFlon</h4>
     <span class="square green"></span><h6>Place de l'Europe 5 - 1003 lausanne</h6>
     <div class="span2">
@@ -345,8 +345,8 @@
     <div class="maps">
       <iframe class="map" width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.ch/maps?f=q&amp;iwloc=&amp;source=s_q&amp;hl=de&amp;geocode=&amp;q=Place+de+l'Europe+5+-+1003+lausanne&amp;aq=&amp;sll=46.507077,6.626751&amp;sspn=0.011667,0.027337&amp;ie=UTF8&amp;hq=&amp;hnear=Place+de+l'Europe+5,+1003+Lausanne,+Vaud&amp;ll=46.520215,6.630305&amp;spn=0.011664,0.027337&amp;t=m&amp;z=14&amp;output=embed"></iframe>
     </div>
-  </article>
-  <article class="ouchy span6">
+  </section>
+  <section class="ouchy span6">
     <h4>Pharmacie MetroOuchy</h4>
     <span class="square red"></span><h6>Place de la Navigation 6 - 1006 Lausanne - Ouchy</h6>
     <div class="span2">
@@ -377,5 +377,5 @@
     <div class="maps">
       <iframe class="map" width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.ch/maps?f=q&amp;iwloc=&amp;source=s_q&amp;hl=de&amp;geocode=&amp;q=Place+de+la+Navigation+6+-+1006+Lausanne+-+Ouchy&amp;aq=&amp;sll=46.507609,6.625443&amp;sspn=0.011667,0.027337&amp;ie=UTF8&amp;hq=&amp;hnear=Place+de+la+Navigation+6,+1006+Lausanne,+Vaud&amp;ll=46.507609,6.625443&amp;spn=0.011667,0.027337&amp;t=m&amp;z=14&amp;output=embed"></iframe>
     </div>
-  </article>
-</section>
+  </section>
+</article>

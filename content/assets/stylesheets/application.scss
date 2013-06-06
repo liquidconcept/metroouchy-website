@@ -432,14 +432,14 @@ nav {
 /*                 SERVICE                */
 /*----------------------------------------*/
 
-section#service {
+article#service {
   padding-left: 20px;
   height: 450px;
   overflow: hidden;
   position: relative;
   @include pie-clearfix;
 
-  article.left_col {
+  section.left_col {
     width: 50%;
     float: left;
     overflow: hidden;
@@ -453,7 +453,7 @@ section#service {
     }
   }
 
-  article.right_col {
+  section.right_col {
     width: 50%;
     float: right;
     overflow: hidden;
@@ -472,13 +472,13 @@ section#service {
 
 /*************** FORM COMMAND ***************/
 
-section.form_service {
+article.form_service {
   height: 270px;
   width: 960px;
   margin-top: 30px;
   background-color: $light_green;
 
-  article {
+  section {
     padding: 20px 0px 20px 20px;
 
     form {
@@ -549,8 +549,8 @@ section.form_service {
 /*               INSTITUTE                */
 /*----------------------------------------*/
 
-section#institute {
-  article.header {
+article#institute {
+  section.header {
     padding: 20px 0px 20px 20px;
 
     p {
@@ -583,7 +583,7 @@ section#institute {
     }
   }
 
-  article.care {
+  section.care {
     padding: 20px 0px 20px 20px;
     .face {
     }
@@ -593,20 +593,20 @@ section#institute {
     }
   }
 
-  article.care_2 {
+  section.care_2 {
     padding: 20px 0px 20px 20px;
   }
 }
 
 /*************** FORM COMMAND ***************/
 
-section.form_institute {
+article.form_institute {
   height: 270px;
   width: 960px;
   margin-top: 10px;
   background-color: $red;
 
-  article {
+  section {
     padding: 20px 0px 20px 20px;
 
     form {
@@ -667,11 +667,11 @@ section.form_institute {
 /*               PARFUMERIE               */
 /*----------------------------------------*/
 
-section#perfumery {
+article#perfumery {
   height: 1850px;
   padding: 20px 0px 20px 20px;
 
-  article.header {
+  section.header {
     p {
       width: 360px;
       float: right;
@@ -682,13 +682,13 @@ section#perfumery {
     }
   }
 
-  article.product {
+  section.product {
     .name {
       font-weight: bold;
     }
   }
 
-  article.brand {
+  section.brand {
     h4 {
       margin-top: 30px;
     }
@@ -707,13 +707,13 @@ section#perfumery {
 
 /************ FORM COMMAND PRODUCT ************/
 
-section.form_perfumery {
+article.form_perfumery {
   height: 270px;
   width: 960px;
   margin-top: 30px;
   background-color: $red;
 
-  article {
+  section {
     padding: 20px 0px 20px 20px;
 
     form {
@@ -784,12 +784,12 @@ section.form_perfumery {
 /*                 EVENTS                 */
 /*----------------------------------------*/
 
-section#events {
+article#events {
   height: 400px;
   width: 940px;
   padding: 20px 0px 20px 20px;
 
-  article.header {
+  section.header {
     p {
       width: 360px;
       float: right;
@@ -800,7 +800,7 @@ section#events {
     }
   }
 
-  article.agenda {
+  section.agenda {
     .table {
       .date {
         width: 120px;
@@ -822,11 +822,11 @@ section#events {
 }
 
 /*----------------------------------------*/
-/*                 EVENTS                 */
+/*                CONTACT                 */
 /*----------------------------------------*/
 
-section#contact {
-  height: 400px;
+article#contact {
+  height: 560px;
   padding: 20px 0px 20px 20px;
 
   .square {
@@ -842,17 +842,17 @@ section#contact {
     font-size: 0.9em;
   }
 
-  article.header {
+  section.header {
     padding-left: 20px;
   }
 
-  article.flon {
+  section.flon {
     div {
       margin: 0px 10px 0px 0px;
     }
   }
 
-  article.ouchy {
+  section.ouchy {
     div {
       margin: 0px 10px 0px 0px;
     }
@@ -875,7 +875,7 @@ section#contact {
 footer.main {
   p {
     font-size: 1em;
-    width: 530px;
-    margin: 0 auto;
+    width: 540px;
+    margin: 20px auto;
   }
 }
