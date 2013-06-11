@@ -2,6 +2,8 @@
 source 'http://rubygems.org'
 
 gem 'rack'
+gem 'sinatra'
+gem 'pony'
 
 group :nanoc do
   gem 'nanoc'

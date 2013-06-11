@@ -27,29 +27,31 @@
 </article>
 <article class="form_service">
   <section>
-    <form method="post" action="/command">
+    <form method="post" action="/service">
       <div class="row">
         <fieldset>
           <div class="span4 column_1">
             <h5>Formulaire de commande</h5>
             <span>Nom, Prénom :</span>
-            <input type="text" name="command[name]" required /><br />
+            <input type="text" name="service[name]" required /><br />
             <span>Téléphone :</span>
-            <input type="text" name="command[phone]" required />
+            <input type="text" name="service[phone]" required />
+            <span>Email :</span>
+            <input type="email" name="service[email]" required />
           </div>
           <div class="span4 column_2">
             <span>Message</span>
-            <textarea rows="12" cols="39" name="command[message]" required></textarea>
+            <textarea rows="12" cols="39" name="service[message]" required></textarea>
           </div>
           <div class="span4 column_3">
-            <div class="span2">
+            <div class="span2 delivery">
               <p>Livraison</p><br />
-              <label><input type="checkbox" name="command[deliver]" value="true" id="delivery_address">à domicile</label>
+              <label><input type="radio" name="service[deliver]" value="domicile" id="delivery_address">à domicile</label>
             </div>
             <div class="span2">
               <p>Passer chercher à la pharmacie</p><br />
-              <label><input type="checkbox" name="command[deliver]" value="true" id="delivery_address">MetroOuchy</label><br /><br />
-              <label><input type="checkbox" name="command[deliver]" value="true" id="delivery_address">MetroFlon</label>
+              <label><input type="radio" name="service[deliver]" value="MetroOuchy" id="delivery_address">MetroOuchy</label><br /><br />
+              <label><input type="radio" name="service[deliver]" value="MetroFlon" id="delivery_address">MetroFlon</label>
             </div>
             <input type="submit" value="Commander" class="submit_command">
           </div>
@@ -302,7 +304,7 @@
             <span>Date :</span>
             <input type="date" name="appointment[date]" required /><br /><br />
             <span>Heure :</span>
-            <input type="email" name="appointment[time]" required />
+            <input type="text" name="appointment[time]" required />
             <input type="submit" value="Prendre un rendez-vous" class="submit_command">
           </div>
         </fieldset>
@@ -384,31 +386,31 @@
 </article>
 <article class="form_perfumery">
   <section>
-    <form method="post" action="/command_product">
+    <form method="post" action="/product">
       <div class="row">
         <fieldset>
           <div class="span4 column_1">
             <h5>Formulaire de commande</h5>
             <span>Nom, Prénom :</span>
-            <input type="text" name="command_product[name]" required /><br />
+            <input type="text" name="product[name]" required /><br />
             <span>Téléphone :</span>
-            <input type="text" name="command_product[phone]" required />
+            <input type="text" name="product[phone]" required />
             <span>Email :</span>
-            <input type="email" name="command_product[email]" required />
+            <input type="email" name="product[email]" required />
           </div>
           <div class="span4 column_2">
             <span>Produits</span>
-            <textarea rows="12" cols="39" name="command_product[product]" required></textarea>
+            <textarea rows="12" cols="39" name="product[product]" required></textarea>
           </div>
           <div class="span4 column_3">
-            <div class="span2">
+            <div class="span2 delivery">
               <p>Livraison</p><br />
-              <label><input type="checkbox" name="command_product[deliver]" value="true" id="delivery_address">à domicile</label>
+              <label><input type="radio" name="product[deliver]" value="domicile" id="delivery_address">à domicile</label>
             </div>
             <div class="span2">
               <p>Passer chercher à la pharmacie</p><br />
-              <label><input type="checkbox" name="command_product[deliver]" value="true" id="delivery_address">MetroOuchy</label><br /><br />
-              <label><input type="checkbox" name="command_product[deliver]" value="true" id="delivery_address">MetroFlon</label>
+              <label><input type="radio" name="product[deliver]" value="MetroOuchy" id="delivery_address">MetroOuchy</label><br /><br />
+              <label><input type="radio" name="product[deliver]" value="MetroFlon" id="delivery_address">MetroFlon</label>
             </div>
             <input type="submit" value="Commander" class="submit_command">
           </div>
