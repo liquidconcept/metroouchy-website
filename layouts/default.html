@@ -9,7 +9,7 @@
   <body>
     <article class="main">
       <header class="main">
-        <h1 class="flon_logo">Métro Flon pharmacie</h1>
+        <h1 class="flon_logo" id="home">Métro Flon pharmacie</h1>
         <div class="schedule">
           <div class="flon">
             <p>7h - 21h non stop</p>
@@ -36,7 +36,7 @@
         <div class="circle circle_contact"></div>
         <div id="scroll_menu">
           <div class="legend home">
-            <p>acceuil</p>
+            <a href="#home"><p>acceuil</p></a>
             <div class="square red"></div>
             <div class="square green"></div>
           </div>
@@ -66,31 +66,18 @@
         </div>
       </nav>
       <article id="sliders">
-        <section id="slider_flon">
-          <div class="name">
-            <div class="content_name">
-              <div class="square green"></div>
-              <span>metro flon</span>
-              <div class="square green last"></div>
-            </div>
-          </div>
-          <img src="<%= image_path('flon_1.jpg') %>" />
-        </section>
-        <section id="slider_ouchy">
-          <img src="<%= image_path('ouchy_1.jpg') %>" />
-          <div class="name">
-            <div class="content_name">
-              <div class="square red"></div>
-              <span>metro ouchy</span>
-              <div class="square red last"></div>
-            </div>
-          </div>
-        </section>
-        <div class="arrow_down">
-          <div class="content">
-            <div class="arrow"></div>
-          </div>
+        <div class="slider_balls">
+          <ul>
+            <% slider.each_with_index do |item, index| %>
+              <li class="ball item_<%= index %><%= index == 0 ? ' active' : nil %>"><a href="#"></a></li>
+            <% end %>
+          </ul>
         </div>
+        <section class="slider">
+          <% slider.each_with_index do |item, index| %>
+            <img src="<%= image_path(item) %>" class="item_<%= index %>">
+          <% end %>
+        </section>
       </article>
       <div class="doted"></div>
       <article class="content">
