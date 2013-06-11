@@ -35,11 +35,11 @@ $(window).bind('load', function() {
   });
 
   // menu toggle institut
-  $('.care > .face > ul > li').on('click', function() {
+  $('.care, .care_2').find('li').on('click', function() {
     event.preventDefault();
 
     var that = $(this);
-    var item = $('.care > .face > ul > li');
+    var item = $('.care, .care_2').find('li');
     var container = $('div.container');
 
     if (item.hasClass('active')) {
@@ -51,7 +51,8 @@ $(window).bind('load', function() {
     } else {
       if (!that.hasClass('active')) {
         that.addClass('active');
-        that.find(container).slideDown('slow');
+        that.animate({'height': '100%'});
+        // that.find(container).slideDown('slow');
       } else {
         that.removeClass('active');
         that.animate({height: '20px'});

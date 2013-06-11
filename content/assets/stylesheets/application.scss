@@ -554,18 +554,6 @@ article#institute {
     margin-left: 60px;
   }
 
-  .more {
-    height: 10px;
-    font-size: 1em;
-    font-weight: bold;
-    color: $red;
-    float: right;
-
-    a.more_link {
-      text-decoration: none;
-    }
-  }
-
   ul {
     li {
       height: 20px;
@@ -576,9 +564,38 @@ article#institute {
       font-weight: bold;
       cursor: pointer;
 
+      .time_price {
+        font-weight: normal;
+        float: left;
+        margin-right: 10px;
+        color: $black;
+      }
+
+      .more {
+        height: 10px;
+        font-size: 1em;
+        font-weight: bold;
+        color: $red;
+        float: right;
+
+        a.more_link {
+          text-decoration: none;
+        }
+      }
+
       .container {
         width: 270px;
         padding: 10px 10px;
+
+        .list{
+          li {
+            height: 100%;
+            padding: 0px;
+            border: none;
+            overflow: none;
+            font-weight: normal;
+          }
+        }
 
         p {
           font-size: 1em;
@@ -595,22 +612,31 @@ article#institute {
 
   section.care {
     padding: 20px 0px 20px 20px;
-    .face {
-    }
-    .body {
-    }
-    .ritual {
+
+    p.legend {
+      padding-left: 20px;
+      font-style: italic;
+      color: $black;
     }
   }
 
   section.care_2 {
     padding: 20px 0px 20px 20px;
+
+    .container {
+      width: 440px;
+    }
+    .cure > p {
+      margin-top: 10px;
+      font-style: italic;
+      font-size: 1em;
+    }
   }
 }
 
 /*************** FORM COMMAND ***************/
 
-article.form_institute {
+article#form_institute {
   height: 270px;
   width: 960px;
   margin-top: 10px;
@@ -678,7 +704,7 @@ article.form_institute {
 /*----------------------------------------*/
 
 article#perfumery {
-  height: 1850px;
+  height: 1700px;
   padding: 20px 0px 20px 20px;
 
   section.header {
