@@ -1,12 +1,29 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    activemodel (3.2.13)
+      activesupport (= 3.2.13)
+      builder (~> 3.0.0)
+    activerecord (3.2.13)
+      activemodel (= 3.2.13)
+      activesupport (= 3.2.13)
+      arel (~> 3.0.2)
+      tzinfo (~> 0.3.29)
+    activesupport (3.2.13)
+      i18n (= 0.6.1)
+      multi_json (~> 1.0)
+    arel (3.0.2)
+    bond (0.4.3)
+    builder (3.0.4)
     capistrano (2.15.4)
       highline
       net-scp (>= 1.0.0)
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
+    carrierwave (0.8.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
     chunky_png (1.2.8)
     coderay (1.0.9)
     colored (1.2)
@@ -42,6 +59,7 @@ GEM
     highline (1.6.18)
     hike (1.2.2)
     http_parser.rb (0.5.3)
+    i18n (0.6.1)
     i18n (0.6.4)
     libv8 (3.11.8.17)
     listen (1.0.3)
@@ -80,6 +98,8 @@ GEM
     rack (1.5.2)
     rack-protection (1.5.0)
       rack
+    rack-test (0.6.2)
+      rack (>= 1.0)
     railsless-deploy (1.1.0)
     rb-fsevent (0.9.3)
     rb-inotify (0.9.0)
@@ -87,12 +107,23 @@ GEM
     rb-kqueue (0.2.0)
       ffi (>= 0.5.0)
     ref (1.0.4)
+    ripl (0.7.0)
+      bond (~> 0.4.2)
+    ripl-multi_line (0.3.1)
+      ripl (>= 0.3.6)
+    ripl-rack (0.2.0)
+      rack (>= 1.0)
+      rack-test (>= 0.5)
+      ripl (>= 0.3.5)
     ruby_gntp (0.3.4)
     sass (3.2.8)
     sinatra (1.4.2)
       rack (~> 1.5, >= 1.5.2)
       rack-protection (~> 1.4)
       tilt (~> 1.3, >= 1.3.4)
+    sinatra-activerecord (1.2.2)
+      activerecord (~> 3.0)
+      sinatra (~> 1.0)
     slop (3.4.4)
     sprockets (2.9.3)
       hike (~> 1.2)
@@ -104,6 +135,7 @@ GEM
     sprockets-sass (1.0.0)
       sprockets (~> 2.0)
       tilt (~> 1.1)
+    sqlite3 (1.3.7)
     therubyracer (0.11.4)
       libv8 (~> 3.11.8.12)
       ref
@@ -112,6 +144,12 @@ GEM
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
+    tux (0.3.0)
+      ripl (>= 0.3.5)
+      ripl-multi_line (>= 0.2.4)
+      ripl-rack (>= 0.2.0)
+      sinatra (>= 1.2.1)
+    tzinfo (0.3.37)
     uglifier (2.0.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
@@ -120,7 +158,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord
   capistrano
+  carrierwave
   compass
   guard
   guard-bundler
@@ -136,8 +176,11 @@ DEPENDENCIES
   ruby_gntp
   sass
   sinatra
+  sinatra-activerecord
   sprockets
   sprockets-helpers
   sprockets-sass
+  sqlite3
   therubyracer
+  tux
   uglifier

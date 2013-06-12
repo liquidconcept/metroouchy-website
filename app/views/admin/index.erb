@@ -1,0 +1,103 @@
+<html>
+  <head>
+    <title>Administration</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <script src="/assets/application.js"></script>
+  </head>
+  <body>
+    <section class="main">
+      <section class="content">
+
+        <hr class="doted" />
+        <section class="perfumery" style="height: 1000px;">
+          <article class="header">
+            <div class="dot_title"></div>
+            <p>
+              Uniquement à la pharmacie MetroOuchy
+              <span class="red square" />
+            </p>
+            <h2>Parfumerie</h2>
+            <h4>La nouveté de la parfumerie</h4>
+          </article>
+
+            <article class="row product">
+              <% @news.each do |news| %>
+                <div class="span4">
+                  <h6><%= news.category %></h6>
+                  <p class="name"><%= news.title %></p>
+                  <img src="<%= news.image.url %>" style="width: 250px;" />
+                  <p class="description"><%= news.description %></p>
+                  <br/>
+
+                  <form action="/admin/news/<%= news.id %>" method="post" enctype="multipart/form-data">
+                    <input id="category" name="new[category]" type="text" value="<%= news.category %>" />
+                    <br />
+                    <input id="title" name="new[title]" type="text" value="<%= news.title %>" />
+                    <br />
+                    <input id="image" name="new[image]" type="file" />
+                    <br />
+                    <textarea id="description" name="new[description]" rows="5"><%= news.description %></textarea>
+                    <br />
+
+                    <input type="submit" value="Mettre à jour" />
+                  </form>
+                </div>
+              <% end %>
+          </article>
+        </section>
+
+        <hr class="doted" />
+
+        <section class="events">
+          <article class="header">
+            <div class="dot_title"></div>
+            <p>
+              Uniquement à la pharmacie MetroOuchy
+              <span class="red square" />
+            </p>
+            <h2>evenements</h2>
+            <h4>Nos rendez-vous</h4>
+            <form action="/admin/events" method="post">
+              <input type="submit" value="Nouvel événements" />
+            </form>
+          </article>
+
+          <section class="sortable">
+            <% @events.each do |event| %>
+              <article class="agenda" data-event-id="<%= event.id %>">
+
+                <form action="/admin/events/<%= event.id %>" method="post">
+                  <div style="margin:0;padding:0">
+                    <input name="_method" type="hidden" value="delete" />
+                  </div>
+                  <input type="submit" value="Supprimer" />
+                </form>
+                <button type="button" class="edit">éditer</button>
+
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <td class="date"><%= event.date %></td>
+                      <td class="logo"><img src="<%= event.logo.url %>"/></td>
+                      <td class="description"><%= event.description %></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <form action="/admin/events/<%= event.id %>" method="post" enctype="multipart/form-data" style="display: none;" class="edit-form">
+                  <textarea id="date" name="event[date]" rows="5"><%= event.date %></textarea>
+                  <input id="logo" name="event[logo]" type="file" />
+                  <input id="description" name="event[description]" type="text" value="<%= event.description %>" />
+                  <input type="submit" value="Mettre à jour" />
+                </form>
+
+              </article>
+            <% end %>
+          </section>
+        </section>
+
+      </section>
+    </section>
+  </body>
+</html>
+

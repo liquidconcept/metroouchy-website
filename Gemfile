@@ -2,8 +2,10 @@
 source 'http://rubygems.org'
 
 gem 'rack'
+
 gem 'sinatra'
 gem 'pony'
+gem 'carrierwave'
 
 group :nanoc do
   gem 'nanoc'
@@ -18,11 +20,18 @@ group :nanoc do
   gem 'nanoc-sprockets-filter'
   gem 'nanoc-gzip-filter'
   gem 'uglifier'
+
+
+  gem "sinatra"
+  gem "sqlite3"
+  gem "activerecord"
+  gem "sinatra-activerecord"
 end
 
 group :development do
   gem 'capistrano'
   gem 'railsless-deploy'
+  gem 'tux'
 end
 
 group :development, :test do
