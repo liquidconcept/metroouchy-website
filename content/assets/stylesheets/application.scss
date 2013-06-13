@@ -1,4 +1,5 @@
 @import "compass/reset";
+@import "compass/css3";
 @import "compass/typography/text/replacement";
 @import "compass/utilities/general/clearfix";
 @import "compass/typography/lists/horizontal-list";
@@ -21,6 +22,7 @@ $dark_grey: #4C4C4E;
 $green: #A4C828;
 $light_green: #B4D334;
 $red: #6F0421;
+$light_red: lighten($red, 60%);
 
 /*----------------------------------------*/
 /*                DEFAULT                 */
@@ -126,6 +128,11 @@ $red: #6F0421;
     margin-top: 20px;
   }
 
+  .message_validate {
+    padding-left: 20px;
+    color: $white;
+  }
+
   .line {
     background-color: $light_grey;
     border-top: 1px solid $grey;
@@ -135,6 +142,126 @@ $red: #6F0421;
     h6 {
       padding: 0px 20px;
     }
+  }
+}
+
+/*----------------------------------------*/
+/*                OVERLAY                 */
+/*----------------------------------------*/
+
+.overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    &.background {
+      background: $grey;
+      @include opacity(0.2);
+    }
+
+    &.loader {
+      background: inline-image('loader.gif') center no-repeat;
+    }
+  }
+
+}
+
+body > .overlay {
+  position: fixed;
+}
+
+/*----------------------------------------*/
+/*                ADMIN                   */
+/*----------------------------------------*/
+
+section.admin {
+  h2 {
+    margin: 25px 0px 0px 0px;
+  }
+
+  p {
+    font-size: 1em;
+    margin: 10px 0px;
+  }
+
+  section.perfumery {
+    height: 830px;
+    padding-bottom: 30px;
+
+    .preview {
+      height: 400px;
+
+      img {
+        width: 250px;
+      }
+    }
+
+    .form {
+      height: 300px;
+
+      input {
+        width: 300px;
+        height: 30px;
+      }
+
+      .submit {
+        cursor: pointer;
+        width: 250px;
+        height: 30px;
+        background-color: $light_green;
+        margin: 10px 0px 10px 25px;
+        font-size: 1em;
+        color: $white;
+        border: 1px solid $light_green;
+        border-bottom: 3px solid $light_green;
+        border-right: 3px solid $light_green;
+        @include border-radius(5px, 5px);
+        @include box-shadow($black 1px 1px 5px 0);
+      }
+    }
+  }
+
+  section.events {
+    height: 500px;
+  }
+}
+
+/*----------------------------------------*/
+/*            VALIDATION FORM             */
+/*----------------------------------------*/
+
+.ui-state-error {
+  border: 1px solid $red;
+  padding: 1px;
+  background-color: $light_red;
+
+  &:focus {
+    background-color: $white;
+    border: 1px solid $grey;
+  }
+
+  + span {
+    color: $red;
+  }
+}
+
+.ui-state-valid {
+  border: 1px solid $green;
+  padding: 1px;
+  background-color: $white;
+
+  + span {
+    color: $green;
   }
 }
 
@@ -413,7 +540,14 @@ nav {
     img {
       height: 500px;
       width: 960px;
+      top: 0px;
+      left: 0px;
       position: absolute;
+      display: none;
+
+      &:first-child {
+        display: block;
+      }
     }
   }
 }
@@ -424,7 +558,7 @@ nav {
 /*----------------------------------------*/
 
 article#service {
-  padding-left: 20px;
+  padding: 20px 0px 0px 20px;
   height: 450px;
   overflow: hidden;
   position: relative;
@@ -463,7 +597,7 @@ article#service {
 
 /*************** FORM COMMAND ***************/
 
-article.form_service {
+article#form_service {
   height: 270px;
   width: 960px;
   margin-top: 30px;
@@ -560,7 +694,6 @@ article#institute {
 
   ul {
     li {
-      height: 20px;
       overflow: hidden;
       border: 2px solid $red;
       padding: 5px 5px;
@@ -590,6 +723,7 @@ article#institute {
       .container {
         width: 270px;
         padding: 10px 10px;
+        display: none;
 
         .list{
           li {
@@ -643,7 +777,7 @@ article#institute {
 article#form_institute {
   height: 270px;
   width: 960px;
-  margin-top: 10px;
+  margin-top: 40px;
   background-color: $red;
 
   section {
@@ -747,7 +881,7 @@ article#perfumery {
 
 /************ FORM COMMAND PRODUCT ************/
 
-article.form_perfumery {
+article#form_perfumery {
   height: 270px;
   width: 960px;
   margin-top: 30px;
@@ -886,6 +1020,10 @@ article#contact {
     padding-left: 20px;
   }
 
+  .information > p {
+    text-transform: right;
+  }
+
   section.flon {
     div {
       margin: 0px 10px 0px 0px;
@@ -897,6 +1035,7 @@ article#contact {
       margin: 0px 10px 0px 0px;
     }
   }
+
 
   .maps {
     .map {

@@ -16,8 +16,8 @@ _.extend(Slider.prototype, {
   // init function
   _initialize: function() {
     // get all items & randomize
-    this.items = _.shuffle($('#sliders > .slider > img'));
-    $('#sliders > .slider').html(this.items);
+    this.items = $('#sliders > .slider > img');
+    //$('#sliders > .slider').html(this.items);
 
     // get container width
     this.width = $('#sliders').outerWidth();

@@ -60,7 +60,6 @@ GEM
     hike (1.2.2)
     http_parser.rb (0.5.3)
     i18n (0.6.1)
-    i18n (0.6.4)
     libv8 (3.11.8.17)
     listen (1.0.3)
       rb-fsevent (>= 0.9.3)
@@ -101,6 +100,7 @@ GEM
     rack-test (0.6.2)
       rack (>= 1.0)
     railsless-deploy (1.1.0)
+    rake (10.0.4)
     rb-fsevent (0.9.3)
     rb-inotify (0.9.0)
       ffi (>= 0.5.0)
@@ -172,6 +172,7 @@ DEPENDENCIES
   pony
   rack
   railsless-deploy
+  rake
   rb-fsevent
   ruby_gntp
   sass

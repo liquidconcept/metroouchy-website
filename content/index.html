@@ -25,7 +25,7 @@
     <img src="<%= image_path('ouchy.jpg') %>">
   </section>
 </article>
-<article class="form_service">
+<article id="form_service" class="form">
   <section>
     <form method="post" action="/service">
       <div class="row">
@@ -35,8 +35,8 @@
             <span>Nom, Prénom :</span>
             <input type="text" name="service[name]" required /><br />
             <span>Téléphone :</span>
-            <input type="text" name="service[phone]" required />
-            <span>Email :</span>
+            <input type="text" name="service[phone]" required /><br />
+            <span>Adresse email :</span>
             <input type="email" name="service[email]" required />
           </div>
           <div class="span4 column_2">
@@ -282,7 +282,7 @@
     <img src="<%= image_path('massage_2.jpg') %>" class="span4 round">
   </div>
 </article>
-<article id="form_institute">
+<article id="form_institute" class="form">
   <section>
     <form method="post" action="/appointment">
       <div class="row">
@@ -293,7 +293,7 @@
             <input type="text" name="appointment[name]" required /><br />
             <span>Téléphone :</span>
             <input type="text" name="appointment[phone]" required />
-            <span>Email :</span>
+            <span>Adresse email :</span>
             <input type="email" name="appointment[email]" required />
           </div>
           <div class="span4 column_2">
@@ -384,7 +384,7 @@
     </div>
   </sections>
 </article>
-<article class="form_perfumery">
+<article id="form_perfumery" class="form">
   <section>
     <form method="post" action="/product">
       <div class="row">
@@ -394,8 +394,8 @@
             <span>Nom, Prénom :</span>
             <input type="text" name="product[name]" required /><br />
             <span>Téléphone :</span>
-            <input type="text" name="product[phone]" required />
-            <span>Email :</span>
+            <input type="text" name="product[phone]" required /><br />
+            <span>Adresse email :</span>
             <input type="email" name="product[email]" required />
           </div>
           <div class="span4 column_2">
@@ -498,10 +498,10 @@
       <p>10h00-21h00</p>
       <p>10h00-21h00</p>
     </div>
-    <div class="span2">
+    <div class="span2 information">
       <p>tél : 021.318.73.10</p>
       <p>fax : 021.318.73.19</p>
-      <a href="mailto:metro-flon@ovan.ch"<p class="email_green">metro-flon@ovan.ch</p></a>
+      <a href="mailto:metro-flon@ovan.ch"><p class="email_green">metro-flon@ovan.ch</p></a>
     </div>
     <div class="maps">
       <iframe class="map" width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.ch/maps?f=q&amp;iwloc=&amp;source=s_q&amp;hl=de&amp;geocode=&amp;q=Place+de+l'Europe+5+-+1003+lausanne&amp;aq=&amp;sll=46.507077,6.626751&amp;sspn=0.011667,0.027337&amp;ie=UTF8&amp;hq=&amp;hnear=Place+de+l'Europe+5,+1003+Lausanne,+Vaud&amp;ll=46.520215,6.630305&amp;spn=0.011664,0.027337&amp;t=m&amp;z=14&amp;output=embed"></iframe>
@@ -530,7 +530,7 @@
       <p>09h00-20h00</p>
       <p>11h00-20h00</p>
     </div>
-    <div class="span2">
+    <div class="span2 information">
       <p>tél : 021.612.03.03</p>
       <p>fax : 021.612.03.09</p>
       <a href="mailto:metro-ouchy@ovan.ch"><p class="email_red">metro-ouchy@ovan.ch</p></a>
