@@ -86,8 +86,7 @@ module Application
     end
 
     post '/events' do
-      @event = Event.new
-      @event.create do |event|
+      Event.create do |event|
         event.position = Event.count
       end
 

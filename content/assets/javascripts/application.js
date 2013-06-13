@@ -2,10 +2,10 @@
 //= require underscore
 //= require modernizr
 //= require h5validate
-//= require slider
-//= require admin
 //= require jquery-ui
 //= require modernizr
+//= require slider
+//= require admin
 
 
 // Validation

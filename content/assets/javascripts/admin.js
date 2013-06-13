@@ -1,13 +1,4 @@
 $(function() {
-  $('.new_event').on('click', function() {
-    event.preventDefault();
-
-    $.ajax({
-      url: 'events',
-      type: 'POST'
-    });
-  });
-
   // Drag & drop events
   $('.sortable').sortable({
     update: function(event, ui) {
@@ -24,7 +15,9 @@ $(function() {
   });
 
   $('.edit').on('click', function() {
-    $(this).parent('.agenda').find('.edit-form').toggle();
-    $(this).parent('.agenda').find('.table').toggle();
+    event.preventDefault();
+
+    $(this).parents('.agenda').find('.edit-form').toggle();
+    $(this).parents('.agenda').find('.action').toggle();
   });
 });
