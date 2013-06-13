@@ -189,6 +189,25 @@ section.admin {
     margin: 25px 0px 0px 0px;
   }
 
+  a.update {
+    position: relative;
+    top: -30px;
+    left: 800px;
+    text-decoration: none;
+    cursor: pointer;
+    width: 250px;
+    height: 30px;
+    background-color: $light_green;
+    margin: 10px 0px 10px 25px;
+    font-size: 1em;
+    color: $white;
+    border: 1px solid $light_green;
+    border-bottom: 3px solid $light_green;
+    border-right: 3px solid $light_green;
+    @include border-radius(5px, 5px);
+    @include box-shadow($black 1px 1px 5px 0);
+  }
+
   p {
     font-size: 1em;
     margin: 10px 0px;
@@ -926,6 +945,10 @@ article#perfumery {
   section.product {
     .name {
       font-weight: bold;
+    }
+
+    img {
+      width: 250px;
     }
   }
 

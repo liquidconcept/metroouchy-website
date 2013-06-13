@@ -5,6 +5,7 @@ require 'sinatra/base'
 require 'sinatra/activerecord'
 require 'carrierwave'
 require 'carrierwave/orm/activerecord'
+require 'fog'
 require './app/uploaders/image_uploader'
 require './app/models/new'
 require './app/models/event'
@@ -69,6 +70,13 @@ module Application
 
     use Rack::Auth::Basic, "Protected Area" do |username, password|
       username == 'admin' && password == '1234'
+    end
+
+    get '/compile' do
+      system 'rm public/index.html'
+      system 'nanoc compile'
+
+      redirect "/admin"
     end
 
     get '/' do

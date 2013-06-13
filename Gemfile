@@ -7,6 +7,7 @@ gem 'rake'
 gem 'sinatra'
 gem 'pony'
 gem 'carrierwave'
+gem 'fog'
 
 group :nanoc do
   gem 'nanoc'
