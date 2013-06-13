@@ -21,6 +21,7 @@ $grey: #8E9AA4;
 $dark_grey: #4C4C4E;
 $green: #A4C828;
 $light_green: #B4D334;
+$lighter_green: lighten($light_green, 60%);
 $red: #6F0421;
 $light_red: lighten($red, 60%);
 
@@ -129,8 +130,7 @@ $light_red: lighten($red, 60%);
   }
 
   .message_validate {
-    padding-left: 20px;
-    color: $white;
+    display: none;
   }
 
   .line {
@@ -241,7 +241,7 @@ section.admin {
 /*----------------------------------------*/
 
 .ui-state-error {
-  border: 1px solid $red;
+  border: 2px solid $red;
   padding: 1px;
   background-color: $light_red;
 
@@ -256,9 +256,9 @@ section.admin {
 }
 
 .ui-state-valid {
-  border: 1px solid $green;
+  border: 2px solid green;
   padding: 1px;
-  background-color: $white;
+  background-color: $lighter_green;
 
   + span {
     color: $green;

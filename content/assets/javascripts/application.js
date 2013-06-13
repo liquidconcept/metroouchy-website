@@ -7,26 +7,6 @@
 //= require jquery-ui
 //= require modernizr
 
-// Overlay
-var overlayToggle = function(el, options) {
-  options = _.defaults(options || {}, {
-    loader: true
-  });
-
-  el = $(el);
-  if (el.has('.overlay').length === 0) {
-    el.css('position', 'relative');
-    var overlay = $('<div class="overlay"><div class="background" /></div>');
-    if (options.loader) {
-      overlay.append('<div class="loader" />');
-    }
-    overlay.appendTo(el).fadeIn();
-  } else {
-    el.children('.overlay').fadeOut(function() {
-      $(this).remove();
-    });
-  }
-}
 
 // Validation
 var initValidation = function() {
@@ -45,9 +25,7 @@ var sendForm = function(event) {
   if(allValid !== true) {
     return;
   }
-
-  // display overlay
-  overlayToggle($('article.form'));
+  var that = $(this)
 
   // send command
   $.ajax({
@@ -55,17 +33,14 @@ var sendForm = function(event) {
     url: $(this).attr('action'),
     data: $(this).serialize(),
     success: function(data, status, xhr) {
-      $('article.form').css('height', $('article.form').height());
-      $('article.form > section > form').fadeOut(function() {
-        $('article.form').addClass('success');
-        $('<p class="message_validate">Formulaire envoyé avec succès</p>').hide().appendTo($('article.form')).fadeIn();
-        overlayToggle($('article.form'));
-      });
-
-      // _gaq.push(['_trackPageview', '/command']);
+      that.fadeOut(function() {
+        that.parent().find($('h5.message_validate')).append('Formulaire envoyée avec succès').fadeIn();
+      })
     },
     error: function(xhr, status, error) {
-      overlayToggle($('article.form'));
+      that.fadeOut(function() {
+        that.parent().find($('h5.message_validate')).append("Le formulaire n'a pas été envoyée avec succès").fadeIn();
+      })
     },
     dataType: 'text'
   });
@@ -98,7 +73,7 @@ $(function() {
   initValidation();
 
   // init form
-  $('article.form > section >form').on('submit', sendForm);
+  $('article.form > section > form').on('submit', sendForm);
 
   // smooth scroll to anchor
   $('.legend > a').on('click', function(event) {
