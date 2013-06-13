@@ -5,3 +5,4 @@
 crash.log
 /tmp
 /log
+/db/*.sqlite3

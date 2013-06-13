@@ -1,67 +1,105 @@
 //= require jquery
 //= require underscore
 //= require modernizr
+//= require h5validate
+//= require jquery-ui
+//= require modernizr
 //= require slider
+//= require admin
 
-// Fixed navbar onScroll action
-$(window).bind('load', function() {
 
-  var nav_position = $('#scroll_menu').offset().top;
-
-  var sticky_navbar = function(){
-    var position = $(document).scrollTop();
-
-    if (nav_position < position) {
-      $('#scroll_menu').addClass('navfixed');
-    } else {
-      $('#scroll_menu').removeClass('navfixed');
-    }
-  };
-
-  sticky_navbar();
-
-  $(window).scroll(function() {
-    sticky_navbar();
+// Validation
+var initValidation = function() {
+  $('article.form > section >form').h5Validate({
+    submit: false, // performed by custom handler
+    keyup: true
   });
+}
+
+// Send form
+var sendForm = function(event) {
+  event.preventDefault();
+
+  // check validity
+  var allValid = $(this).h5Validate('allValid', { revalidate: true });
+  if(allValid !== true) {
+    return;
+  }
+  var that = $(this)
+
+  // send command
+  $.ajax({
+    type: 'POST',
+    url: $(this).attr('action'),
+    data: $(this).serialize(),
+    success: function(data, status, xhr) {
+      that.fadeOut(function() {
+        that.parent().find($('h5.message_validate')).append('Formulaire envoyée avec succès').fadeIn();
+      })
+    },
+    error: function(xhr, status, error) {
+      that.fadeOut(function() {
+        that.parent().find($('h5.message_validate')).append("Le formulaire n'a pas été envoyée avec succès").fadeIn();
+      })
+    },
+    dataType: 'text'
+  });
+}
+
+// Sticky menu
+var stickyMenuPosition;
+var stickyMenu = function() {
+  var position = $(document).scrollTop();
+
+  if (stickyMenuPosition < position) {
+    $('#scroll_menu').addClass('navfixed');
+  } else {
+    $('#scroll_menu').removeClass('navfixed');
+  }
+};
+
+$(function() {
+
+  // init slider
+  var slider = new Slider();
+  slider.start();
+
+  // init sticky menu
+  stickyMenuPosition = $('#scroll_menu').offset().top;
+  stickyMenu();
+  $(window).scroll(stickyMenu);
+
+  // init validation
+  initValidation();
+
+  // init form
+  $('article.form > section > form').on('submit', sendForm);
 
   // smooth scroll to anchor
-  $('.legend > a').on('click', function(){
-    var height_navbar = "100px";
+  $('.legend > a').on('click', function(event) {
+    event.preventDefault();
 
     $('html, body').animate({
-      scrollTop: $( $.attr(this, 'href') ).offset().top
+      scrollTop: $($(this).attr('href')).offset().top - 80
     }, 500);
-    return false;
   });
 
   // menu toggle institut
   $('.care, .care_2').find('li').on('click', function() {
     event.preventDefault();
 
-    var that = $(this);
-    var item = $('.care, .care_2').find('li');
-    var container = $('div.container');
+    var $this = $(this);
 
-    if (item.hasClass('active')) {
-      item.removeClass('active');
-      item.animate({height: '20px'})
-    } else if (item.hasClass('active') === that) {
-      that.removeClass('active');
-      that.animate({height: '20px'});
+    if ($this.hasClass('active')) {
+      $this.find('.container').slideUp('slow', function() {
+        $this.removeClass('active');
+      });
     } else {
-      if (!that.hasClass('active')) {
-        that.addClass('active');
-        that.animate({'height': '100%'});
-        // that.find(container).slideDown('slow');
-      } else {
-        that.removeClass('active');
-        that.animate({height: '20px'});
-      }
+      $('#institute li.active .container').slideUp('slow');
+      $('#institute li.active').removeClass('active');
+      $this.find('.container').slideDown('slow', function() {
+        $this.addClass('active');
+      });
     }
   });
-
-  // init slider
-  var slider = window.slider = new Slider();
-  slider.start();
-
 });

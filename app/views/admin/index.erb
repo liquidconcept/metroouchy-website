@@ -1,0 +1,100 @@
+<html>
+  <head>
+    <title>Administration</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <script src="/assets/application.js"></script>
+  </head>
+  <body>
+    <section class="main">
+      <section class="admin">
+        <h2>Administration</h2>
+        <a class="update" href="/admin/compile">Mettre a jour le site</a>
+        <div class="doted"></div>
+        <section class="perfumery">
+          <article class="header">
+            <h3>Parfumerie</h3>
+          </article>
+            <article class="row product">
+              <% @news.each do |news| %>
+                <div class="span4">
+                  <div class="preview">
+                    <h6><%= news.category %></h6>
+                    <p class="name"><%= news.title %></p>
+                    <img src="<%= news.image.url %>" />
+                    <p class="description"><%= news.description %></p><br/>
+                  </div>
+                  <div class="form">
+                    <form action="/admin/news/<%= news.id %>" method="post" enctype="multipart/form-data">
+                      <p>Categorie :</p>
+                      <input id="category" name="new[category]" type="text" value="<%= news.category %>" /><br />
+                      <p>Titre :</p>
+                      <input id="title" name="new[title]" type="text" value="<%= news.title %>" /><br />
+                      <p>Image :</p>
+                      <input id="image" name="new[image]" type="file" /><br />
+                      <p>Description :</p>
+                      <textarea id="description" name="new[description]" rows="8" cols="40"><%= news.description %></textarea><br /><hr />
+                      <input type="submit" value="Mettre à jour" class="submit" />
+                    </form>
+                  </div>
+                </div>
+              <% end %>
+          </article>
+        </section>
+
+        <div class="doted"></div>
+
+        <section class="events">
+          <article class="header">
+            <h3>Evenements</h3>
+            <form action="/admin/events" method="post">
+              <input type="submit" value="Nouvel événements" class="new_event" />
+            </form>
+          </article>
+          <section class="sortable">
+            <% @events.each do |event| %>
+              <article class="agenda" data-event-id="<%= event.id %>">
+                <table class="table action">
+                  <tbody>
+                    <tr>
+                      <td class="date"><%= event.date.lines.map(&:chomp).join('<br />') if event.date.present? %></td>
+                      <td class="logo"><img src="<%= event.logo.url %>"/></td>
+                      <td class="description"><%= event.description %></td>
+                      <td class="edit_cell"><button type="button" class="edit">Editer</button></td>
+                      <td class="delete_cell">
+                        <form action="/admin/events/<%= event.id %>" method="post">
+                          <div style="margin:0;padding:0">
+                            <input name="_method" type="hidden" value="delete" />
+                          </div>
+                          <input type="submit" value="Supprimer" class="delete" />
+                        </form>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <form action="/admin/events/<%= event.id %>" method="post" enctype="multipart/form-data" style="display: none;" class="edit-form">
+                <table class="table">
+                  <th>Date :</th>
+                  <th>Logo :</th>
+                  <th>Description :</th>
+                  <tbody>
+                    <tr>
+                      <span class="info">Après chaque date, mettre un retour à la ligne</span>
+                      <span class="info_logo">Taille du logo 200x80 pixel max</span>
+                      <td class="date"><textarea id="date" name="event[date]" rows="5" cols="18"><%= event.date %></textarea></td>
+                      <td class="logo"><input id="logo" name="event[logo]" type="file" /></td>
+                      <td class="description"><input id="description" name="event[description]" type="text" value="<%= event.description %>" class="desciption_input" /></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <input type="submit" value="Mettre à jour" class="update_button" />
+                </form>
+              </article>
+            <% end %>
+          </section>
+        </section>
+
+      </section>
+    </section>
+  </body>
+</html>
+
