@@ -630,10 +630,17 @@ article#institute {
     .container {
       width: 440px;
     }
+
     .cure > p {
       margin-top: 10px;
       font-style: italic;
       font-size: 1em;
+    }
+
+    .price {
+      float: right;
+      margin-right: 10px;
+      font-weight: bold;
     }
   }
 }
