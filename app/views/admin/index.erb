@@ -6,10 +6,21 @@
   </head>
   <body>
     <section class="main">
-      <section class="admin">
-        <h2>Administration</h2>
-        <a class="update" href="/admin/compile">Mettre a jour le site</a>
-        <div class="doted"></div>
+      <section class="admin" id="perfumery">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+          <div class="navbar-inner">
+            <div class="container">
+              <p class="title">Administration</p>
+              <div class="nav-collapse collapse">
+                <ul class="nav pull-right">
+                  <a href="#events"><li>Evenements</li></a>
+                  <a href="#perfumery"><li>Parfumerie</li></a>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="publish btn btn-warning" href="/admin/compile">Publier</a>
         <section class="perfumery">
           <article class="header">
             <h3>Parfumerie</h3>
@@ -29,11 +40,11 @@
                       <input id="category" name="new[category]" type="text" value="<%= news.category %>" /><br />
                       <p>Titre :</p>
                       <input id="title" name="new[title]" type="text" value="<%= news.title %>" /><br />
-                      <p>Image :</p>
+                      <p>Image :</p><span class="info_img">Taille de l'image 250x250 max</span>
                       <input id="image" name="new[image]" type="file" /><br />
                       <p>Description :</p>
-                      <textarea id="description" name="new[description]" rows="8" cols="40"><%= news.description %></textarea><br /><hr />
-                      <input type="submit" value="Mettre à jour" class="submit" />
+                      <textarea id="description" name="new[description]" class="description"><%= news.description %></textarea>
+                      <input type="submit" value="Sauver" class="btn btn-success submit" />
                     </form>
                   </div>
                 </div>
@@ -43,11 +54,11 @@
 
         <div class="doted"></div>
 
-        <section class="events">
+        <section id="events">
           <article class="header">
             <h3>Evenements</h3>
             <form action="/admin/events" method="post">
-              <input type="submit" value="Nouvel événements" class="new_event" />
+              <input type="submit" value="Nouvel événements" class="new_event btn btn-primary" />
             </form>
           </article>
           <section class="sortable">
@@ -59,13 +70,13 @@
                       <td class="date"><%= event.date.lines.map(&:chomp).join('<br />') if event.date.present? %></td>
                       <td class="logo"><img src="<%= event.logo.url %>"/></td>
                       <td class="description"><%= event.description %></td>
-                      <td class="edit_cell"><button type="button" class="edit">Editer</button></td>
+                      <td class="edit_cell"><button type="button" class="edit btn btn-small">Editer</button></td>
                       <td class="delete_cell">
                         <form action="/admin/events/<%= event.id %>" method="post">
                           <div style="margin:0;padding:0">
                             <input name="_method" type="hidden" value="delete" />
                           </div>
-                          <input type="submit" value="Supprimer" class="delete" />
+                          <input type="submit" value="Supprimer" class="btn btn-danger btn-small" />
                         </form>
                       </td>
                     </tr>
@@ -80,13 +91,13 @@
                     <tr>
                       <span class="info">Après chaque date, mettre un retour à la ligne</span>
                       <span class="info_logo">Taille du logo 200x80 pixel max</span>
-                      <td class="date"><textarea id="date" name="event[date]" rows="5" cols="18"><%= event.date %></textarea></td>
+                      <td class="date"><textarea id="date" name="event[date]"><%= event.date %></textarea></td>
                       <td class="logo"><input id="logo" name="event[logo]" type="file" /></td>
-                      <td class="description"><input id="description" name="event[description]" type="text" value="<%= event.description %>" class="desciption_input" /></td>
+                      <td class="description"><textarea id="description" name="event[description]" type="text" value="<%= event.description %>" class="desciption_input"></textarea></td>
                     </tr>
                   </tbody>
                 </table>
-                <input type="submit" value="Mettre à jour" class="update_button" />
+                <input type="submit" value="Sauver" class="update_button btn btn-success" />
                 </form>
               </article>
             <% end %>

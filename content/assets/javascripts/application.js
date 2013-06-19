@@ -76,7 +76,7 @@ $(function() {
   $('article.form > section > form').on('submit', sendForm);
 
   // smooth scroll to anchor
-  $('.legend > a').on('click', function(event) {
+  $('.legend > a, header.main > a').on('click', function(event) {
     event.preventDefault();
 
     $('html, body').animate({
@@ -85,21 +85,27 @@ $(function() {
   });
 
   // menu toggle institut
-  $('.care, .care_2').find('li').on('click', function() {
-    event.preventDefault();
+  if ($('.care, .care_2').find('li:has(.container)')) {
+    $('.care, .care_2').find('li:has(.container)').find('.more_link').append('+');
+    $('.care, .care_2').find('li').on('click', function() {
+      event.preventDefault();
 
-    var $this = $(this);
+      var $this = $(this);
 
-    if ($this.hasClass('active')) {
-      $this.find('.container').slideUp('slow', function() {
-        $this.removeClass('active');
-      });
-    } else {
-      $('#institute li.active .container').slideUp('slow');
-      $('#institute li.active').removeClass('active');
-      $this.find('.container').slideDown('slow', function() {
-        $this.addClass('active');
-      });
-    }
-  });
+      if ($this.hasClass('active')) {
+        $this.find('.container').slideUp('slow', function() {
+          $this.removeClass('active');
+          $this.find('.more_link').html('+');
+        });
+      } else {
+        $('#institute li.active .container').slideUp('slow');
+        $('#institute li.active .more .more_link').html('+');
+        $('#institute li.active').removeClass('active');
+        $this.find('.container').slideDown('slow', function() {
+          $this.addClass('active');
+          $this.find('.more_link').html('-');
+        });
+      }
+    });
+  }
 });

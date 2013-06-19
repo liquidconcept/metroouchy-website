@@ -133,6 +133,16 @@ $light_red: lighten($red, 60%);
     display: none;
   }
 
+  .textarea {
+    width: 280px;
+    min-width: 280px;
+    max-height: 280px;
+
+    height: 155px;
+    min-height: 155px;
+    max-height: 155px;
+  }
+
   .line {
     background-color: $light_grey;
     border-top: 1px solid $grey;
@@ -189,23 +199,37 @@ section.admin {
     margin: 25px 0px 0px 0px;
   }
 
-  a.update {
+  a.publish {
     position: relative;
-    top: -30px;
-    left: 800px;
+    top: 60px;
+    left: 790px;
     text-decoration: none;
     cursor: pointer;
-    width: 250px;
-    height: 30px;
-    background-color: $light_green;
-    margin: 10px 0px 10px 25px;
-    font-size: 1em;
+    width: 150px;
+    height: 20px;
+    padding: 10px 10px;
     color: $white;
-    border: 1px solid $light_green;
-    border-bottom: 3px solid $light_green;
-    border-right: 3px solid $light_green;
-    @include border-radius(5px, 5px);
-    @include box-shadow($black 1px 1px 5px 0);
+    font-size: 1.8em;
+  }
+
+  .navbar-inner {
+    .container {
+      width: 960px;
+      margin: 0 auto;
+
+      p.title {
+        font-size: 1.2em;
+        color: $white;
+        float: left;
+      }
+
+      a {
+        float: right;
+        color: $white;
+        text-decoration: underline;
+        margin: 10px 0px 0px 10px;
+      }
+    }
   }
 
   p {
@@ -214,7 +238,8 @@ section.admin {
   }
 
   section.perfumery {
-    height: 830px;
+    margin-top: 80px;
+    height: 850px;
     padding-bottom: 30px;
 
     .preview {
@@ -225,6 +250,12 @@ section.admin {
       }
     }
 
+    .info_img {
+      font-size: 0.8em;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
     .form {
       height: 300px;
 
@@ -233,24 +264,24 @@ section.admin {
         height: 30px;
       }
 
+      .description {
+        width: 300px;
+        min-width: 300px;
+        max-height: 300px;
+        height: 130px;
+        min-height: 130px;
+        max-height: 130px;
+        margin-bottom: 20px;
+      }
+
       .submit {
-        cursor: pointer;
-        width: 250px;
+        width: 100px;
         height: 30px;
-        background-color: $light_green;
-        margin: 10px 0px 10px 25px;
-        font-size: 1em;
-        color: $white;
-        border: 1px solid $light_green;
-        border-bottom: 3px solid $light_green;
-        border-right: 3px solid $light_green;
-        @include border-radius(5px, 5px);
-        @include box-shadow($black 1px 1px 5px 0);
       }
     }
   }
 
-  section.events {
+  section#events {
     height: 500px;
 
     .new_event {
@@ -261,7 +292,7 @@ section.admin {
       margin-bottom: 30px;
 
       .edit_cell {
-        width: 80px;
+        width: 60px;
 
         .edit {
           float: right;
@@ -300,6 +331,11 @@ section.admin {
 
       textarea {
         width: 300px;
+        min-width: 300px;
+        max-height: 300px;
+        height: 80px;
+        min-height: 80px;
+        max-height: 80px;
       }
 
       .date {
@@ -376,6 +412,7 @@ header.main {
     margin: 0 auto;
     padding-top: 50px;
     position: relative;
+    display: none;
 
     p {
       font-size: 0.9em;
@@ -861,6 +898,14 @@ article#institute {
       float: right;
       margin-right: 10px;
       font-weight: bold;
+    }
+  }
+
+  .none {
+    cursor: auto;
+
+    .more {
+      margin-right: 10px;
     }
   }
 }
