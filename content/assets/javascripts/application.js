@@ -65,9 +65,11 @@ $(function() {
   slider.start();
 
   // init sticky menu
-  stickyMenuPosition = $('#scroll_menu').offset().top;
-  stickyMenu();
-  $(window).scroll(stickyMenu);
+  if ($('#scroll_menu').length > 0) {
+    stickyMenuPosition = $('#scroll_menu').offset().top;
+    stickyMenu();
+    $(window).scroll(stickyMenu);
+  }
 
   // init validation
   initValidation();

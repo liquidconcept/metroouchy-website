@@ -94,11 +94,14 @@ module Application
     end
 
     post '/events' do
-      Event.create do |event|
-        event.position = Event.count
-      end
+      @event = Event.new(params[:event])
+      @event.position = Event.count
 
-      redirect "/admin"
+      if @event.save
+        erb :"admin/event"
+      else
+        status 500
+      end
     end
 
     post '/events/:id' do
