@@ -87,7 +87,7 @@
                       <td class="description"><%= event.description %></td>
                       <td class="edit_cell"><button type="button" class="edit btn btn-small">Editer</button></td>
                       <td class="delete_cell">
-                        <form action="/admin/events/<%= event.id %>" method="post">
+                        <form action="/admin/events/<%= event.id %>" method="post" class="delete">
                           <div style="margin:0;padding:0">
                             <input name="_method" type="hidden" value="delete" />
                           </div>
