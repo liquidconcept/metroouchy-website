@@ -1,10 +1,10 @@
 # encoding: utf-8
 set :application, 'website'
-set :domain,      ''
-set :server_name, ''
+set :domain,      'metro-ouchy.ch'
+set :server_name, 'ruby-rack-2.liquid-concept.ch'
 
 set :scm,         :git
-set :repository,  '.'
+set :repository,  'git@github.com:liquidconcept/metroouchy-website.git'
 set :branch,      'production'
 
 ssh_options[:forward_agent] = true
@@ -13,7 +13,7 @@ default_run_options[:pty] = true
 default_environment['LC_CTYPE'] = 'en_US.UTF-8'
 
 set :user,        'webpublisher'
-set :deploy_via,  :copy
+set :deploy_via,  :remote_cache
 set :deploy_to,   "/var/www/#{domain}/#{application}"
 set :use_sudo,    false
 
