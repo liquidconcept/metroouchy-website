@@ -62,6 +62,7 @@ namespace :deploy do
 end
 
 before 'deploy:symlink' do
+  run "mkdir -p #{File.join(shared_path,'config')} && rm -f #{File.join(release_path,'config','settings.yml')} && ln -s #{File.join(shared_path,'config','settings.yml')} #{File.join(release_path,'config','settings.yml')}"
 end
 
 after 'deploy:update', 'deploy:restart'

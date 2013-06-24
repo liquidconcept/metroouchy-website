@@ -1,0 +1,37 @@
+<article class="agenda" data-event-id="<%= @event.id %>">
+  <table class="table action">
+    <tbody>
+      <tr>
+        <td class="date"><%= @event.date.lines.map(&:chomp).join('<br />') if @event.date.present? %></td>
+        <td class="logo"><img src="<%= @event.logo.url %>"/></td>
+        <td class="description"><%= @event.description %></td>
+        <td class="edit_cell"><button type="button" class="edit btn btn-small">Editer</button></td>
+        <td class="delete_cell">
+          <form action="/admin/events/<%= @event.id %>" method="post" class="delete">
+            <div style="margin:0;padding:0">
+              <input name="_method" type="hidden" value="delete" />
+            </div>
+            <input type="submit" value="Supprimer" class="btn btn-danger btn-small" />
+          </form>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <form action="/admin/events/<%= @event.id %>" method="post" enctype="multipart/form-data" style="display: none;" class="edit-form">
+  <table class="table">
+    <th>Date :</th>
+    <th>Logo :</th>
+    <th>Description :</th>
+    <tbody>
+      <tr>
+        <span class="info">Après chaque date, mettre un retour à la ligne</span>
+        <span class="info_logo">Taille du logo 200x80 pixel max</span>
+        <td class="date"><textarea id="date" name="event[date]"><%= @event.date %></textarea></td>
+        <td class="logo"><input id="logo" name="event[logo]" type="file" /></td>
+        <td class="description"><textarea id="description" name="event[description]" type="text" class="desciption_input"><%= @event.description %></textarea></td>
+      </tr>
+    </tbody>
+  </table>
+  <input type="submit" value="Sauver" class="update_button btn btn-success" />
+  </form>
+</article>
