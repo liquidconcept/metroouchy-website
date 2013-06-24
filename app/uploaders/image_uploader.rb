@@ -14,7 +14,7 @@ module Application
     storage :fog
 
     def filename
-      "#{model.class.name}/#{model.id}.jpg"
+      "#{model.class.name}/#{Sinatra::Base.environment}/#{model.id}.jpg"
     end
   end
 end
