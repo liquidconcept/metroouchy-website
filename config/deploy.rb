@@ -17,7 +17,7 @@ set :deploy_via,  :remote_cache
 set :deploy_to,   "/var/www/#{domain}/#{application}"
 set :use_sudo,    false
 
-set :bundle_without, [:nanoc, :development, :test, :guard]
+set :bundle_without, [:development, :test, :guard]
 
 role :web, server_name                          # Your HTTP server, Apache/etc
 role :app, server_name                          # This may be the same as your `Web` server
@@ -36,6 +36,29 @@ namespace :deploy do
     run "mkdir -p #{File.join(current_path,'tmp')}"
     run "touch #{File.join(current_path,'tmp','restart.txt')}"
   end
+
+  task :migrate, :roles => :db, :only => { :primary => true } do
+    rake = fetch(:rake, "rake")
+    rails_env = fetch(:rails_env, "production")
+    migrate_env = fetch(:migrate_env, "")
+    migrate_target = fetch(:migrate_target, :latest)
+
+    directory = case migrate_target.to_sym
+                when :current then current_path
+                when :latest  then latest_release
+                else raise ArgumentError, "unknown migration target #{migrate_target.inspect}"
+                end
+
+    run "cd #{directory} && #{rake} RAILS_ENV=#{rails_env} #{migrate_env} db:migrate"
+  end
+
+  task :migrations do
+    set :migrate_target, :latest
+    update_code
+    migrate
+    create_symlink
+    restart
+  end
 end
 
 before 'deploy:symlink' do
@@ -43,3 +66,6 @@ end
 
 after 'deploy:update', 'deploy:restart'
 after 'deploy:update', 'deploy:cleanup'
+after 'deploy:migrations', 'deploy:restart'
+after 'deploy:migrations', 'deploy:cleanup'
+

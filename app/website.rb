@@ -74,7 +74,7 @@ module Application
 
     get '/compile' do
       system 'rm public/index.html'
-      system 'nanoc compile'
+      system 'bundle exec nanoc compile'
 
       redirect "/admin"
     end
