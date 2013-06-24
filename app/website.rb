@@ -12,6 +12,10 @@ require './app/models/event'
 
 require File.expand_path('../../config/application', __FILE__)
 
+configure do
+  @@config = YAML.load_file('./config/auth.yaml') rescue nil || {}
+end
+
 set :database, "sqlite3:///db/database.sqlite3"
 
 module Application
@@ -69,7 +73,7 @@ module Application
     use Rack::MethodOverride
 
     use Rack::Auth::Basic, "Protected Area" do |username, password|
-      username == 'admin' && password == '1234'
+      username == @@config['basic_auth']['username'] && @@config['basic_auth']['password']
     end
 
     get '/compile' do
