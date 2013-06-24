@@ -13,7 +13,7 @@ require './app/models/event'
 require File.expand_path('../../config/application', __FILE__)
 
 configure do
-  @@config = YAML.load_file('./config/auth.yaml') rescue nil || {}
+  @@config = YAML.load_file('./config/settings.yaml') rescue {}
 end
 
 set :database, "sqlite3:///db/database.sqlite3"
