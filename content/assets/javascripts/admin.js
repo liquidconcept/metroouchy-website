@@ -43,11 +43,34 @@ $(window).load(function () {
     });
   });
 
-  $('.edit').on('click', function() {
+  $(document).on('click', '.edit', function() {
     event.preventDefault();
 
     $(this).parents('.agenda').find('.edit-form').toggle();
     $(this).parents('.agenda').find('.action').toggle();
+  });
+
+  $(document).on('submit', '.edit-form', function() {
+
+    event.preventDefault();
+    var that = $(this);
+
+    // send command
+    $.ajax({
+      type: 'POST',
+      url: $(this).attr('action'),
+      data: $(this).serialize(),
+      success: function(data, status, xhr) {
+        that.toggle();
+        that.parents('.agenda').find('.action').toggle();
+        that.parents('.agenda').replaceWith(data);
+      },
+      error: function(xhr, status, error) {
+        that.toggle();
+        that.parents('.agenda').find('.action').toggle();
+      },
+      dataType: 'html'
+    });
   });
 
 });

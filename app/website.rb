@@ -110,9 +110,12 @@ module Application
 
     post '/events/:id' do
       @event = Event.find(params[:id])
-      @event.update_attributes(params[:event])
 
-      redirect "/admin"
+      if @event.update_attributes(params[:event])
+        erb :"admin/event"
+      else
+        status 500
+      end
     end
 
     delete '/events/:id' do
