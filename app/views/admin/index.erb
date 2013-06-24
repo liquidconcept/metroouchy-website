@@ -57,8 +57,23 @@
         <section id="events">
           <article class="header">
             <h3>Evenements</h3>
-            <form action="/admin/events" method="post">
-              <input type="submit" value="Nouvel événements" class="new_event btn btn-primary" />
+            <button class="new_event btn btn-primary">Nouvel événements</button>
+            <form action="/admin/events" method="post" enctype="multipart/form-data" style="display: none;" id="add_event_form" class="event_form">
+              <table class="table">
+                <th>Date :</th>
+                <th>Logo :</th>
+                <th>Description :</th>
+                <tbody>
+                  <tr>
+                    <span class="info">Après chaque date, mettre un retour à la ligne</span>
+                    <span class="info_logo">Taille du logo 200x80 pixel max</span>
+                    <td class="date"><textarea id="date" name="event[date]"></textarea></td>
+                    <td class="logo"><input id="logo" name="event[logo]" type="file" /></td>
+                    <td class="description"><textarea id="description" name="event[description]" type="text"  class="desciption_input"></textarea></td>
+                  </tr>
+                </tbody>
+              </table>
+              <input type="submit" value="Sauver" class="update_button btn btn-success" />
             </form>
           </article>
           <section class="sortable">
