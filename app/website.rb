@@ -12,6 +12,10 @@ require './app/models/event'
 
 require File.expand_path('../../config/application', __FILE__)
 
+configure do
+  @@config = YAML.load_file('./config/settings.yaml') rescue {}
+end
+
 set :database, "sqlite3:///db/database.sqlite3"
 
 module Application
@@ -69,7 +73,7 @@ module Application
     use Rack::MethodOverride
 
     use Rack::Auth::Basic, "Protected Area" do |username, password|
-      username == 'admin' && password == '1234'
+      username == @@config['basic_auth']['username'] && @@config['basic_auth']['password']
     end
 
     get '/compile' do
@@ -106,9 +110,12 @@ module Application
 
     post '/events/:id' do
       @event = Event.find(params[:id])
-      @event.update_attributes(params[:event])
 
-      redirect "/admin"
+      if @event.update_attributes(params[:event])
+        erb :"admin/event"
+      else
+        status 500
+      end
     end
 
     delete '/events/:id' do
