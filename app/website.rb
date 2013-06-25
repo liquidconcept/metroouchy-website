@@ -77,7 +77,7 @@ module Application
     use Rack::MethodOverride
 
     use Rack::Auth::Basic, "Protected Area" do |username, password|
-      username == @@config['basic_auth']['username'] && @@config['basic_auth']['password']
+      username == @@config['basic_auth']['username'] && password == @@config['basic_auth']['password']
     end
 
     get '/compile' do
