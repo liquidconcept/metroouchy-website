@@ -1,8 +1,8 @@
 <html>
   <head>
     <title>Administration</title>
-    <link rel="stylesheet" href="/assets/application.css">
-    <script src="/assets/application.js"></script>
+    <link rel="stylesheet" href="<%= stylesheet_path 'application' %>" media="screen">
+    <script src="<%= javascript_path 'application' %>"></script>
   </head>
   <body>
     <section class="main">
@@ -84,7 +84,7 @@
                     <tr>
                       <td class="date"><%= event.date.lines.map(&:chomp).join('<br />') if event.date.present? %></td>
                       <td class="logo"><img src="<%= event.logo.url %>"/></td>
-                      <td class="description"><%= event.description %></td>
+                      <td class="description"><%= event.description.lines.map(&:chomp).join('<br />') if event.description.present? %></td>
                       <td class="edit_cell"><button type="button" class="edit btn btn-small">Editer</button></td>
                       <td class="delete_cell">
                         <form action="/admin/events/<%= event.id %>" method="post" class="delete">

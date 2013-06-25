@@ -61,12 +61,12 @@ namespace :deploy do
   end
 end
 
-before 'deploy:symlink' do
+before 'deploy:finalize_update' do
+  run "mkdir -p #{File.join(shared_path,'db')} && rm -f #{File.join(release_path,'db','database.sqlite3')} && ln -s #{File.join(shared_path,'db','database.sqlite3')} #{File.join(release_path,'db','database.sqlite3')}"
+  run "mkdir -p #{File.join(shared_path,'public')} && rm -rf #{File.join(release_path,'public')} && ln -s #{File.join(shared_path,'public')} #{File.join(release_path,'config','settings.yml')}"
   run "mkdir -p #{File.join(shared_path,'config')} && rm -f #{File.join(release_path,'config','settings.yml')} && ln -s #{File.join(shared_path,'config','settings.yml')} #{File.join(release_path,'config','settings.yml')}"
 end
 
 after 'deploy:update', 'deploy:restart'
 after 'deploy:update', 'deploy:cleanup'
-after 'deploy:migrations', 'deploy:restart'
-after 'deploy:migrations', 'deploy:cleanup'
 

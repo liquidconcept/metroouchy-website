@@ -11,9 +11,13 @@ require './app/models/new'
 require './app/models/event'
 
 require File.expand_path('../../config/application', __FILE__)
+require File.expand_path('../../config/nanoc', __FILE__)
+require File.expand_path('../../config/compass', __FILE__)
+
+include Nanoc::Helpers::Sprockets
 
 configure do
-  @@config = YAML.load_file('./config/settings.yaml') rescue {}
+  @@config = YAML.load_file(File.expand_path('../../config/settings.yml', __FILE__)) rescue {}
 end
 
 set :database, "sqlite3:///db/database.sqlite3"
