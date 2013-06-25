@@ -64,6 +64,9 @@ end
 before 'deploy:finalize_update' do
   run "mkdir -p #{File.join(shared_path,'db')} && rm -f #{File.join(release_path,'db','database.sqlite3')} && ln -s #{File.join(shared_path,'db','database.sqlite3')} #{File.join(release_path,'db','database.sqlite3')}"
   run "mkdir -p #{File.join(shared_path,'config')} && rm -f #{File.join(release_path,'config','settings.yml')} && ln -s #{File.join(shared_path,'config','settings.yml')} #{File.join(release_path,'config','settings.yml')}"
+end
+
+before 'deploy:create_symlink'
   run "cd #{release_path} && RACK_ENV=\"production\" bundle exec nanoc compile > /dev/null"
 end
 
