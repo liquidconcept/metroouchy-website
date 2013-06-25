@@ -17,7 +17,7 @@ require File.expand_path('../../config/compass', __FILE__)
 include Nanoc::Helpers::Sprockets
 
 configure do
-  @@config = YAML.load_file(File.expand_path('../../config/settings.yml', __FILE__)) rescue {}
+  @@config = YAML.load_file('./config/settings.yaml') rescue {}
 end
 
 set :database, "sqlite3:///db/database.sqlite3"
