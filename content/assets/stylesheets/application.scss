@@ -39,8 +39,7 @@ $light_red: lighten($red, 60%);
   }
 
   .doted {
-    background-image: url('dot.png');
-    background-repeat: repeat-x;
+    background: inline-image('dot.png') repeat-x;
     width: 100%;
     height: 20px;
     margin: 20px 0px;
