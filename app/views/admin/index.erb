@@ -32,7 +32,7 @@
                     <h6><%= news.category %></h6>
                     <p class="name"><%= news.title %></p>
                     <img src="<%= news.image.url %>" />
-                    <p class="description"><%= news.description %></p><br/>
+                    <p class="description"><%= news.description.lines.map(&:chomp).join('<br />') if news.description.present? %></p><br/>
                   </div>
                   <div class="form">
                     <form action="/admin/news/<%= news.id %>" method="post" enctype="multipart/form-data">
