@@ -34,6 +34,10 @@ var dateDisplayer = function () {
       $('.schedule > .flon > p > .hours').text($($('section.flon > div.timetable > p')[day_index]).text());
       $('.schedule > .ouchy > p > .hours').text($($('section.ouchy > div.timetable > p')[day_index]).text());
     },
+    error: function(xhr, status, error) {
+      $('.schedule > .flon > p > .hours').text($($('section.flon > div.timetable > p')[day_index]).text());
+      $('.schedule > .ouchy > p > .hours').text($($('section.ouchy > div.timetable > p')[day_index]).text());
+    },
     dataType: 'text'
   });
 
