@@ -1,4 +1,6 @@
 module Application
+  require 'digest/sha1'
+
   class ImageUploader < CarrierWave::Uploader::Base
     CarrierWave.configure do |config|
       config.fog_credentials = {
@@ -13,8 +15,18 @@ module Application
 
     storage :fog
 
+    def path_or_url
+      return path if File.exists?(path)
+      url
+    end
+
     def filename
-      "#{model.class.name}/#{Sinatra::Base.environment}/#{model.id}.jpg"
+      @name ||= "#{model.class.name.split('::').last.downcase.pluralize}/#{Sinatra::Base.environment}/#{model.id}-#{checksum}#{File.extname(super)}" if super
+    end
+
+    def checksum
+      chunk = model.send(mounted_as)
+      @checksum ||= Digest::SHA1.hexdigest(File.open(path_or_url).read)
     end
   end
 end
