@@ -65,7 +65,7 @@ var sendForm = function(event) {
     data: $(this).serialize(),
     success: function(data, status, xhr) {
       that.fadeOut(function() {
-        that.parent().find($('h5.message_validate')).append('Formulaire envoyée avec succès').fadeIn();
+        that.parent().find($('h5.message_validate')).append('Votre demande a bien été envoyé, elle sera traité dans les plus bref délais.').fadeIn();
       })
     },
     error: function(xhr, status, error) {
@@ -122,7 +122,7 @@ $(function() {
   // menu toggle institut
   if ($('.care, .care_2').find('li:has(.container)')) {
     $('.care, .care_2').find('li:has(.container)').find('.more_link').append('+');
-    $('.care, .care_2').find('li').on('click', function() {
+    $('.care, .care_2').find('li').on('click', function(event) {
       event.preventDefault();
 
       var $this = $(this);
