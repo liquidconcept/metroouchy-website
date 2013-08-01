@@ -8,6 +8,7 @@ gem 'sinatra'
 gem 'pony'
 gem 'carrierwave'
 gem 'fog'
+gem 'xml-simple'
 
 group :nanoc do
   gem 'nanoc'

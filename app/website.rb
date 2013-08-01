@@ -9,6 +9,7 @@ require 'fog'
 require './app/uploaders/image_uploader'
 require './app/models/new'
 require './app/models/event'
+require './app/models/bank_day'
 
 require File.expand_path('../../config/application', __FILE__)
 require File.expand_path('../../config/nanoc', __FILE__)
@@ -70,6 +71,10 @@ module Application
       )
 
       redirect "/"
+    end
+
+    get '/bank/day' do
+      BankDay::is_bank_day?(Date.today).to_s
     end
   end
 
@@ -139,5 +144,6 @@ module Application
         .update_all(position_start >= @event.position ? 'position = position + 1' : 'position = position - 1')
 
     end
+
   end
 end
