@@ -8,13 +8,44 @@
 //= require admin
 
 
+// diplay date
+var dateDisplayer = function () {
+  days_name = new Array('DIMANCHE', 'LUNDI', 'MARDI', 'MERCREDI', 'JEUDI', 'VENDREDI', 'SAMEDI');
+  month_name = new Array('janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre');
+
+  date = new Date;
+
+  $('.date > .day').text(days_name[date.getDay()]);
+  $('.date > p:last').text(date.getDate() + ' ' + month_name[date.getMonth()] + ' ' + date.getFullYear());
+
+  var day_index = (date.getDay() - 1);
+  if (day_index < 0) {
+    day_index = 6;
+  }
+
+  $.ajax({
+    type: 'GET',
+    url: '/bank/day',
+    success: function(data, status, xhr) {
+      if (data == 'true') {
+        day_index = 7;
+      }
+
+      $('.schedule > .flon > p > .hours').text($($('section.flon > div.timetable > p')[day_index]).text());
+      $('.schedule > .ouchy > p > .hours').text($($('section.ouchy > div.timetable > p')[day_index]).text());
+    },
+    dataType: 'text'
+  });
+
+};
+
 // Validation
 var initValidation = function() {
   $('article.form > section >form').h5Validate({
     submit: false, // performed by custom handler
     keyup: true
   });
-}
+};
 
 // Send form
 var sendForm = function(event) {
@@ -34,7 +65,7 @@ var sendForm = function(event) {
     data: $(this).serialize(),
     success: function(data, status, xhr) {
       that.fadeOut(function() {
-        that.parent().find($('h5.message_validate')).append('Formulaire envoyée avec succès').fadeIn();
+        that.parent().find($('h5.message_validate')).append('Votre demande a bien été envoyé, elle sera traité dans les plus bref délais.').fadeIn();
       })
     },
     error: function(xhr, status, error) {
@@ -44,7 +75,7 @@ var sendForm = function(event) {
     },
     dataType: 'text'
   });
-}
+};
 
 // Sticky menu
 var stickyMenuPosition;
@@ -59,6 +90,8 @@ var stickyMenu = function() {
 };
 
 $(function() {
+
+  dateDisplayer();
 
   // init slider
   var slider = new Slider();
@@ -89,7 +122,7 @@ $(function() {
   // menu toggle institut
   if ($('.care, .care_2').find('li:has(.container)')) {
     $('.care, .care_2').find('li:has(.container)').find('.more_link').append('+');
-    $('.care, .care_2').find('li').on('click', function() {
+    $('.care, .care_2').find('li').on('click', function(event) {
       event.preventDefault();
 
       var $this = $(this);
