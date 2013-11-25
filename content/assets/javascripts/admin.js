@@ -51,28 +51,6 @@ $(window).load(function () {
     $(this).parents('.agenda').find('.action').toggle();
   });
 
-  $(document).on('submit', '.edit-form', function() {
-
-    event.preventDefault();
-    var that = $(this);
-
-    $.ajax({
-      type: 'POST',
-      url: $(this).attr('action'),
-      data: $(this).serialize(),
-      success: function(data, status, xhr) {
-        that.toggle();
-        that.parents('.agenda').find('.action').toggle();
-        that.parents('.agenda').replaceWith(data);
-      },
-      error: function(xhr, status, error) {
-        that.toggle();
-        that.parents('.agenda').find('.action').toggle();
-      },
-      dataType: 'html'
-    });
-  });
-
   $(document).on('submit', '.delete', function() {
 
     event.preventDefault();

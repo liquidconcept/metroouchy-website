@@ -111,7 +111,7 @@ module Application
       @event.position = Event.count
 
       if @event.save
-        erb :"admin/event"
+        redirect "/admin"
       else
         status 500
       end
@@ -121,7 +121,7 @@ module Application
       @event = Event.find(params[:id])
 
       if @event.update_attributes(params[:event])
-        erb :"admin/event"
+        redirect "/admin"
       else
         status 500
       end
