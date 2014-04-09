@@ -2,17 +2,6 @@ module Application
   require 'digest/sha1'
 
   class ImageUploader < CarrierWave::Uploader::Base
-    CarrierWave.configure do |config|
-      config.fog_credentials = {
-        :provider               => 'AWS',
-        :aws_access_key_id      => @@config['aws']['access_key_id'],
-        :aws_secret_access_key  => @@config['aws']['secret_access_key'],
-        :region                 => @@config['aws']['region']
-      }
-      config.fog_directory  = @@config['aws']['bucket']
-      config.fog_public     = true
-    end
-
     storage :fog
 
     def path_or_url

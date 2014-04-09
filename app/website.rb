@@ -4,9 +4,14 @@ require 'sinatra'
 require 'sinatra/base'
 require 'sinatra/activerecord'
 
+require 'carrierwave'
+require 'carrierwave/orm/activerecord'
+require 'fog'
+
 require File.expand_path('../../config/application', __FILE__)
 require File.expand_path('../../config/nanoc', __FILE__)
 require File.expand_path('../../config/compass', __FILE__)
+require File.expand_path('../../config/carrierwave', __FILE__)
 
 include Nanoc::Helpers::Sprockets
 
@@ -14,9 +19,6 @@ configure do
   @@config = YAML.load_file(File.expand_path('../../config/settings.yml', __FILE__)) rescue {}
 end
 
-require 'carrierwave'
-require 'carrierwave/orm/activerecord'
-require 'fog'
 require './app/uploaders/image_uploader'
 require './app/models/new'
 require './app/models/event'
