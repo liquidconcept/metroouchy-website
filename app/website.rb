@@ -3,13 +3,6 @@ require 'pony'
 require 'sinatra'
 require 'sinatra/base'
 require 'sinatra/activerecord'
-require 'carrierwave'
-require 'carrierwave/orm/activerecord'
-require 'fog'
-require './app/uploaders/image_uploader'
-require './app/models/new'
-require './app/models/event'
-require './app/models/bank_day'
 
 require File.expand_path('../../config/application', __FILE__)
 require File.expand_path('../../config/nanoc', __FILE__)
@@ -21,9 +14,18 @@ configure do
   @@config = YAML.load_file(File.expand_path('../../config/settings.yml', __FILE__)) rescue {}
 end
 
+require 'carrierwave'
+require 'carrierwave/orm/activerecord'
+require 'fog'
+require './app/uploaders/image_uploader'
+require './app/models/new'
+require './app/models/event'
+require './app/models/bank_day'
+
 set :database, "sqlite3:///db/database.sqlite3"
 
 module Application
+
   class Website < Sinatra::Base
     set :static, true
     set :public, File.expand_path('../../public', __FILE__)
