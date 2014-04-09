@@ -5,11 +5,11 @@ module Application
     CarrierWave.configure do |config|
       config.fog_credentials = {
         :provider               => 'AWS',
-        :aws_access_key_id      => 'AKIAJAVZXFHDEOH2VDSQ',
-        :aws_secret_access_key  => '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',
-        :region                 => 'eu-west-1'
+        :aws_access_key_id      => @@config['aws']['access_key_id'],
+        :aws_secret_access_key  => @@config['aws']['secret_access_key'],
+        :region                 => @@config['aws']['region']
       }
-      config.fog_directory  = 'metroouchy'
+      config.fog_directory  = @@config['aws']['bucket']
       config.fog_public     = true
     end
 
