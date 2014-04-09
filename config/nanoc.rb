@@ -13,6 +13,8 @@ require 'nanoc-sprockets-filter'
 require 'nanoc-gzip-filter'
 require 'uglifier'
 
+require File.expand_path('../../config/carrierwave', __FILE__)
+
 #
 # Nanoc
 #
