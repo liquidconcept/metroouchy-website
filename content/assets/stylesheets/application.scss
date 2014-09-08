@@ -91,6 +91,17 @@ $light_red: lighten($red, 60%);
     font-size: 1.2em;
   }
 
+  .italic {
+    font-style: italic;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+
+  .italic-no {
+    font-style: italic;
+    font-size: 16px;
+  }
+
   h2 {
     font-size: 2em;
     color: $dark_grey;
