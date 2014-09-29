@@ -91,6 +91,17 @@ $light_red: lighten($red, 60%);
     font-size: 1.2em;
   }
 
+  .italic {
+    font-style: italic;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+
+  .italic-no {
+    font-style: italic;
+    font-size: 16px;
+  }
+
   h2 {
     font-size: 2em;
     color: $dark_grey;
@@ -801,6 +812,7 @@ article#form_service {
 
 article#institute {
   section.header {
+    height: 107px;
     padding: 20px 0px 20px 20px;
 
     p {
@@ -811,10 +823,14 @@ article#institute {
         float: right;
       }
     }
-  }
 
-  .title_left {
-    margin-left: 60px;
+    h4 {
+      margin-bottom: 10px;
+    }
+
+    p.legend {
+      width: 100%;
+    }
   }
 
   ul {
@@ -873,18 +889,16 @@ article#institute {
     }
   }
 
-  section.care {
-    padding: 20px 0px 20px 20px;
-
-    p.legend {
-      padding-left: 20px;
-      font-style: italic;
-      color: $black;
-    }
-  }
-
   section.care_2 {
-    padding: 20px 0px 20px 20px;
+    padding: 0px 0px 40px 20px;
+
+    .empty_title {
+      color: $white;
+    }
+
+    .margin-align {
+      margin-top: 21px;
+    }
 
     .container {
       width: 440px;
