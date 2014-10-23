@@ -24,8 +24,6 @@ group :nanoc do
   gem 'nanoc-gzip-filter'
   gem 'uglifier'
 
-
-  gem "sinatra"
   gem "sqlite3"
   gem "activerecord"
   gem "sinatra-activerecord"
