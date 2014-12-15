@@ -6,4 +6,4 @@ crash.log
 /tmp
 /log
 /db/*.sqlite3
-config/settings.yml
+config/settings.local.yml

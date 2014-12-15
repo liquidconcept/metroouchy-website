@@ -5,6 +5,7 @@ gem 'rack'
 gem 'rake'
 
 gem 'sinatra'
+gem 'rails_config', git: 'git@github.com:railsconfig/rails_config.git'
 gem 'pony'
 gem 'carrierwave'
 gem 'fog'

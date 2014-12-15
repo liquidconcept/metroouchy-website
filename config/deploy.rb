@@ -1,7 +1,7 @@
 # encoding: utf-8
 set :application, 'website'
 set :domain,      'metro-ouchy.ch'
-set :server_name, 'ruby-rack-2.liquid-concept.ch'
+set :server_name, '95.142.162.83'
 
 set :scm,         :git
 set :repository,  'git@github.com:liquidconcept/metroouchy-website.git'

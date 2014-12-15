@@ -1,12 +1,20 @@
 # encoding: utf-8
-require 'pony'
 require 'sinatra'
 require 'sinatra/base'
 require 'sinatra/activerecord'
 
+require 'rails_config'
+require 'pony'
+
 require 'carrierwave'
 require 'carrierwave/orm/activerecord'
 require 'fog'
+
+set :root, File.expand_path('../..', __FILE__)
+set :environment, ENV['RACK_ENV'] || 'development'
+set :database, 'sqlite3:///db/database.sqlite3'
+
+register RailsConfig
 
 require File.expand_path('../../config/application', __FILE__)
 require File.expand_path('../../config/nanoc', __FILE__)
@@ -15,16 +23,10 @@ require File.expand_path('../../config/carrierwave', __FILE__)
 
 include Nanoc::Helpers::Sprockets
 
-configure do
-  @@config = YAML.load_file(File.expand_path('../../config/settings.yml', __FILE__)) rescue {}
-end
-
 require './app/uploaders/image_uploader'
 require './app/models/new'
 require './app/models/event'
 require './app/models/bank_day'
-
-set :database, "sqlite3:///db/database.sqlite3"
 
 module Application
 
@@ -38,20 +40,10 @@ module Application
         template = ERB.new(File.read(File.expand_path('../templates/service.text.erb', __FILE__), :encoding => 'UTF-8'))
 
         Pony.mail(
-          :from        => params[:service][:email],
-          :to          => COMMAND_EMAIL_TO_OUCHY,
-          :via         => :smtp,
-          :via_options => {
-            :address        => ADDRESS,
-            :port           => PORT,
-            :user_name      => USER,
-            :password       => PASSWORD,
-            :authentication => :plain,
-            :domain         => DOMAIN
-          }
-          :charset     => 'utf-8',
-          :subject     => COMMAND_SUBJECT,
-          :body        => template.result(binding)
+          headers: {
+            'Reply-To' => params[:service][:email]
+          },
+          body: template.result(binding)
         )
       end
 
@@ -64,20 +56,10 @@ module Application
         template = ERB.new(File.read(File.expand_path('../templates/appointment.text.erb', __FILE__), :encoding => 'UTF-8'))
 
         Pony.mail(
-          :from     => params[:appointment][:email],
-          :to          => COMMAND_EMAIL_TO_OUCHY,
-          :via         => :smtp,
-          :via_options => {
-            :address        => ADDRESS,
-            :port           => PORT,
-            :user_name      => USER,
-            :password       => PASSWORD,
-            :authentication => :plain,
-            :domain         => DOMAIN
-          }
-          :charset     => 'utf-8',
-          :subject     => COMMAND_SUBJECT,
-          :body        => template.result(binding)
+          headers: {
+            'Reply-To' => params[:appointment][:email]
+          },
+          body: template.result(binding)
         )
       end
 
@@ -90,20 +72,10 @@ module Application
         template = ERB.new(File.read(File.expand_path('../templates/product.text.erb', __FILE__), :encoding => 'UTF-8'))
 
         Pony.mail(
-          :from     => params[:product][:email],
-          :to          => COMMAND_EMAIL_TO_OUCHY,
-          :via         => :smtp,
-          :via_options => {
-            :address        => ADDRESS,
-            :port           => PORT,
-            :user_name      => USER,
-            :password       => PASSWORD,
-            :authentication => :plain,
-            :domain         => DOMAIN
-          }
-          :charset     => 'utf-8',
-          :subject     => COMMAND_SUBJECT,
-          :body        => template.result(binding)
+          headers: {
+            'Reply-To' => params[:product][:email]
+          },
+          body: template.result(binding)
         )
       end
 
@@ -118,8 +90,8 @@ module Application
   class Admin < Sinatra::Base
     use Rack::MethodOverride
 
-    use Rack::Auth::Basic, "Protected Area" do |username, password|
-      username == @@config['basic_auth']['username'] && password == @@config['basic_auth']['password']
+    use Rack::Auth::Basic, 'Protected Area' do |username, password|
+      username == Settings.basic_auth.username && password == Settings.basic_auth.password
     end
 
     get '/compile' do

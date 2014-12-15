@@ -7,11 +7,17 @@ require 'bundler/setup'
 require 'sass'
 require 'compass'
 
+require 'rails_config'
+
 require 'sprockets'
 require 'sprockets-sass'
 require 'nanoc-sprockets-filter'
 require 'nanoc-gzip-filter'
 require 'uglifier'
+
+unless defined?(Settings)
+  RailsConfig.load_and_set_settings(RailsConfig.setting_files(File.expand_path('../../config', __FILE__), ENV['RACK_ENV'] || 'development'))
+end
 
 require File.expand_path('../../config/carrierwave', __FILE__)
 
