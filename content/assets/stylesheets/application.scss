@@ -165,6 +165,14 @@ $light_red: lighten($red, 60%);
   }
 }
 
+/* hidden input for captcha */
+
+form {
+  .nickname {
+    display: none;
+  }
+}
+
 /*----------------------------------------*/
 /*                OVERLAY                 */
 /*----------------------------------------*/

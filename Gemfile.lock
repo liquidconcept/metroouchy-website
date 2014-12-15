@@ -1,3 +1,10 @@
+GIT
+  remote: git@github.com:railsconfig/rails_config.git
+  revision: 8375d71fd0e6830b52543618a4f5c002d944e6ae
+  specs:
+    rails_config (0.5.0.beta1)
+      activesupport (>= 3.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -84,7 +91,7 @@ GEM
       treetop (~> 1.4.8)
     method_source (0.8.1)
     mime-types (1.23)
-    multi_json (1.7.2)
+    multi_json (1.10.1)
     nanoc (3.6.3)
       cri (~> 2.3)
     nanoc-gzip-filter (0.0.1)
@@ -187,6 +194,7 @@ DEPENDENCIES
   nanoc-sprockets-filter
   pony
   rack
+  rails_config!
   railsless-deploy
   rake
   rb-fsevent
