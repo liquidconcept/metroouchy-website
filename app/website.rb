@@ -34,45 +34,78 @@ module Application
 
     # Form service
     post '/service' do
-      template = ERB.new(File.read(File.expand_path('../templates/service.text.erb', __FILE__), :encoding => 'UTF-8'))
+      if params[:service][:nickname] && params[:service][:nickname].blank?
+        template = ERB.new(File.read(File.expand_path('../templates/service.text.erb', __FILE__), :encoding => 'UTF-8'))
 
-      Pony.mail(
-        :from     => params[:service][:email],
-        :to       => COMMAND_EMAIL_TO_OUCHY,
-        :charset  => 'utf-8',
-        :subject  => COMMAND_SUBJECT,
-        :body     => template.result(binding)
-      )
+        Pony.mail(
+          :from        => params[:service][:email],
+          :to          => COMMAND_EMAIL_TO_OUCHY,
+          :via         => :smtp,
+          :via_options => {
+            :address        => ADDRESS,
+            :port           => PORT,
+            :user_name      => USER,
+            :password       => PASSWORD,
+            :authentication => :plain,
+            :domain         => DOMAIN
+          }
+          :charset     => 'utf-8',
+          :subject     => COMMAND_SUBJECT,
+          :body        => template.result(binding)
+        )
+      end
 
       redirect "/"
     end
 
     # Form appointment
     post '/appointment' do
-      template = ERB.new(File.read(File.expand_path('../templates/appointment.text.erb', __FILE__), :encoding => 'UTF-8'))
+      if params[:appointment][:nickname] && params[:appointment][:nickname].blank?
+        template = ERB.new(File.read(File.expand_path('../templates/appointment.text.erb', __FILE__), :encoding => 'UTF-8'))
 
-      Pony.mail(
-        :from     => params[:appointment][:email],
-        :to       => COMMAND_EMAIL_TO_OUCHY,
-        :charset  => 'utf-8',
-        :subject  => COMMAND_SUBJECT,
-        :body     => template.result(binding)
-      )
+        Pony.mail(
+          :from     => params[:appointment][:email],
+          :to          => COMMAND_EMAIL_TO_OUCHY,
+          :via         => :smtp,
+          :via_options => {
+            :address        => ADDRESS,
+            :port           => PORT,
+            :user_name      => USER,
+            :password       => PASSWORD,
+            :authentication => :plain,
+            :domain         => DOMAIN
+          }
+          :charset     => 'utf-8',
+          :subject     => COMMAND_SUBJECT,
+          :body        => template.result(binding)
+        )
+      end
 
       redirect "/"
     end
 
     # Form perfumery
     post '/product' do
-      template = ERB.new(File.read(File.expand_path('../templates/product.text.erb', __FILE__), :encoding => 'UTF-8'))
+      if params[:product][:nickname] && params[:product][:nickname].blank?
+        template = ERB.new(File.read(File.expand_path('../templates/product.text.erb', __FILE__), :encoding => 'UTF-8'))
 
-      Pony.mail(
-        :from     => params[:product][:email],
-        :to       => COMMAND_EMAIL_TO_OUCHY,
-        :charset  => 'utf-8',
-        :subject  => COMMAND_SUBJECT,
-        :body     => template.result(binding)
-      )
+        Pony.mail(
+          :from     => params[:product][:email],
+          :to          => COMMAND_EMAIL_TO_OUCHY,
+          :via         => :smtp,
+          :via_options => {
+            :address        => ADDRESS,
+            :port           => PORT,
+            :user_name      => USER,
+            :password       => PASSWORD,
+            :authentication => :plain,
+            :domain         => DOMAIN
+          }
+          :charset     => 'utf-8',
+          :subject     => COMMAND_SUBJECT,
+          :body        => template.result(binding)
+        )
+      end
 
       redirect "/"
     end
